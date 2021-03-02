@@ -1,18 +1,37 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block title %}Acerca de nosotros | Laura's{% endblock %}
 
 {% block content %}
 
 <main>
-    <section class="section-top" id="seccion-1">
-        <div class="section-title-container" id="seccion-2">
-            <div class="section-title section-title--right u-margin-bottom-8">
-                <h2 class="section-title__text section-title__text--right">
-                    Acerca de nosotros
-                </h2>
+    <section class="section-top">
+        {% include 'section_title.html' with id='section-1' side='right' name='Acerca de nosotros' %}
+
+        <div class="row u-margin-top-16">
+            <div class="col-1-of-2">
+                <h3 class="heading-tertiary">Repostería nacida en La Laguna</h3>
+                <p class="paragraph">
+                    {% lorem 1 b %}
+                </p>
+                <h3 class="heading-tertiary">Un sabor a hogar único</h3>
+                <p class="paragraph">
+                    {% lorem 40 w %}
+                </p>
+
+                <a href="{% url 'soon' %}" class="btn-text">Aprende más &rarr;</a>
+            </div>
+            <div class="col-1-of-2">
+                <div class="composition">
+                    <img src="{% static 'img/about_img_1.jpg' %}" alt="Photo 1" class="composition__photo composition__photo--p1">
+                    <img src="{% static 'img/about_img_2.jpg' %}" alt="Photo 2" class="composition__photo composition__photo--p2">
+                    <img src="{% static 'img/about_img_3.jpg' %}" alt="Photo 3" class="composition__photo composition__photo--p3">
+                </div>
             </div>
         </div>
+
     </section>
 </main>
 

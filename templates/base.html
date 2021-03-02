@@ -12,17 +12,25 @@
     <title>{% block title %}Laura's | Repostería Fina{% endblock %}</title>
 </head>
 
-{% block header %}
-{% endblock %}
+<body>
+{% block header %}{% endblock %}
 
 <!-- Navbar -->
 <nav class="navbar">
     <div class="navbar-background">
-    <a href="{% url 'home' %}" class="navbar__item navbar__item--active">Inicio</a>
-    <a href="{% url 'about' %}" class="navbar__item">Quienes somos</a>
-    <!--a href="#seccion-2" class="navbar__item">Lo que ofrecemos</a-->
-    <a href="{% url 'contact' %}" class="navbar__item">Encuentranos</a>
-    <a class="navbar__item--span"></a>
+        <a href="{% url 'home' %}" 
+        class="navbar__item {% if request.path == '/' %}navbar__item--active{% endif %}">
+            Inicio
+        </a>
+        <a href="{% url 'about' %}" 
+        class="navbar__item {% if request.path == '/about' %}navbar__item--active{% endif %}">
+            Quiénes somos
+        </a>
+        <a href="{% url 'contact' %}" 
+        class="navbar__item {% if request.path == '/contact' %}navbar__item--active{% endif %}">
+            Encuéntranos
+        </a>
+        <a class="navbar__item--span"></a>
     </div>
 </nav>
 
@@ -34,3 +42,4 @@
 
 <!-- Script -->
 <script src="{% static 'js/script.js' %}"></script>
+</body>

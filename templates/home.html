@@ -1,30 +1,99 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block header %}
-<header class="header" id="home">
-    <div class="header__logo-box header__logo-box--fadingIn">
-        <span class="header__logo-box__text">Laura's</span>
-    </div>
-    <div class="header__text-box">
-        <h1 class="heading-primary heading-primary--sliding-in">
-            <span class="heading-primary--sub">Repostería Fina</span>
-        </h1>
-    </div>
-    
-</header>
+{% include 'header.html' %}
 {% endblock %}
 
 {% block content %}
 <main>
-    <section class="section-top" id="seccion-1">
-        <div class="section-title-container" id="seccion-2">
-            <div class="section-title section-title--right u-margin-bottom-8">
-                <h2 class="section-title__text section-title__text--right">
-                    Conoce nuestro catálogo
-                </h2>
-            </div>
-        </div>
+    <section class="section-top">
+        {% include 'section_title.html' with name='Conoce nuestros postres' %}
     </section>
 </main>
+
+<section class="section-features">
+    <div class="row carrusel-container">
+        <div class="col-1-of-2">
+            <div class="card card--foreground">
+                <div class="card__side card__side--front">
+                    <div class="card__picture card__picture--1">
+                        <!-- Image -->
+                    </div>
+                    <h4 class="card__heading">
+                        <span class="card__heading-span card__heading-span--1">
+                            Besos de fresa
+                        </span>
+                    </h4>
+                    <div class="card__details">
+                        <ul>
+                            <li>Con o sin azucar glass</li>
+                            <li>Bolsa de 100gr</li>
+                            <li>Caja de 500gr</li>
+                            <li>Caja de 1Kg</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card__side card__side--back card__side--back-1">
+                    <div class="card__picture card__picture--2">
+                        <!-- Image -->
+                    </div>
+                    <h4 class="card__heading">
+                        <span class="card__heading-span card__heading-span--1">
+                            Galletas M&M's
+                        </span>
+                    </h4>
+                    <div class="card__details">
+                        <ul>
+                            <li>Bolsa de 100gr</li>
+                            <li>Caja de 500gr</li>
+                            <li>Caja de 1Kg</li>
+                            <li>Galleta Grande (26cm)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-1-of-2">
+                <div class="card card--foreground">
+                    <div class="card__side card__side--front">
+                        <div class="card__picture card__picture--3">
+                            <!-- Image -->
+                        </div>
+                        <h4 class="card__heading">
+                            <span class="card__heading-span card__heading-span--1">
+                                Pay de Manzana
+                            </span>
+                        </h4>
+                        <div class="card__details">
+                            <ul>
+                                <li>Individual (12cm)</li>
+                                <li>Mediano (20cm)</li>
+                                <li>Grande (28cm)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card__side card__side--back card__side--back-1">
+                        <div class="card__picture card__picture--4">
+                            <!-- Image -->
+                        </div>
+                        <h4 class="card__heading">
+                            <span class="card__heading-span card__heading-span--1">
+                                Pay de Fresas con Crema
+                            </span>
+                        </h4>
+                        <div class="card__details">
+                            <ul>
+                                <li>Individual (12cm)</li>
+                                <li>Mediano (20cm)</li>
+                                <li>Grande (28cm)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+
 
 {% endblock content %}
