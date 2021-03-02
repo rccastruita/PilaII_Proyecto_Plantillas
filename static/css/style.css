@@ -135,6 +135,9 @@ body {
 .u-center-text {
   text-align: center; }
 
+.u-right-text {
+  text-align: right; }
+
 .u-margin-bottom-8 {
   margin-bottom: 8rem; }
 
@@ -340,7 +343,7 @@ body {
         font-size: 1.5rem;
         padding: 1rem; }
         .card__details ul li:not(:last-child) {
-          border-bottom: 1px solid #eeeeee; }
+          border-bottom: 2px solid #ddd; }
   .card__cta {
     position: absolute;
     text-align: center;
@@ -508,3 +511,41 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0 50rem;
   margin-top: -10rem; }
+
+footer {
+  color: #ddd;
+  background-color: #472000;
+  padding: 4rem 1rem; 
+}
+
+.footer-title {
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.btn-icon:link, .btn-icon:visited {
+  text-decoration: none;
+  color: white;
+  font-size: 3rem;
+  margin-left: 4rem;
+}
+
+.footer-list {
+  text-decoration: none; 
+}
+
+.footer-list__item {
+  list-style-type: none;
+  font-size: 2rem;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-link:hover {
+  font-weight: bolder;
+}

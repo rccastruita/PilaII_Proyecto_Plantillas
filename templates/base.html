@@ -5,10 +5,12 @@
     
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="{$ static 'fontawesome_free/css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/icon-font.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}">
     <script src="{% static 'vendor/JQuery/jquery-3.5.1.js' %}"></script>
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
     <title>{% block title %}Laura's | Repostería Fina{% endblock %}</title>
 </head>
 
@@ -26,6 +28,10 @@
         class="navbar__item {% if request.path == '/about' %}navbar__item--active{% endif %}">
             Quiénes somos
         </a>
+        <a href="{% url 'products' %}" 
+        class="navbar__item {% if request.path == '/products' %}navbar__item--active{% endif %}">
+            Nuestros postres
+        </a>
         <a href="{% url 'contact' %}" 
         class="navbar__item {% if request.path == '/contact' %}navbar__item--active{% endif %}">
             Encuéntranos
@@ -38,7 +44,65 @@
 {% endblock content %}
 
 <!-- Footer -->
-
+<footer>
+    <div class="row">
+        <div class="col-1-of-3">
+            <p class="footer-title">
+                <a href="" class="footer-link">Pedidos</a><hr>
+            </p>
+            <ul class="footer-list">
+                <li class="footer-list__item">
+                    <a href="" class="footer-link">Mayoreo</a>
+                </li>
+                <li class="footer-list__item">
+                    <a href="" class="footer-link">Pastel personalizado</a>
+                </li>
+                <li class="footer-list__item">
+                    <a href="" class="footer-link">Otro</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-1-of-3">
+            <p class="footer-title">
+                Productos<hr>
+            </p>
+            <ul class="footer-list">
+                <li class="footer-list__item">
+                    <a href="" class="footer-link">Pasteles</a>
+                </li>
+                <li class="footer-list__item">
+                    <a href="" class="footer-link">Cupcakes</a>
+                </li>
+                <li class="footer-list__item">
+                    <a href="" class="footer-link">Pays</a>
+                </li>
+                <li class="footer-list__item">
+                    <a href="" class="footer-link">Galletas</a>
+                </li>
+                <li class="footer-list__item">
+                    <a href="" class="footer-link">Brownies</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-1-of-3 u-right-text">
+            <p class="u-right-text">
+                <a href="" class="btn-icon">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="" class="btn-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" class="btn-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </p>
+            <p class="paragraph">
+                871-123-45-67<br>
+                contact@laura.reposteria.com
+            </p>
+        </div>
+    </div>
+</footer>
 
 <!-- Script -->
 <script src="{% static 'js/script.js' %}"></script>

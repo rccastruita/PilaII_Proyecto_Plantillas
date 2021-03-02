@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 django = "*"
+fontawesome-free = "*"
 
 [dev-packages]
 
