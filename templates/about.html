@@ -1,16 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block title %}Acerca de nosotros | Laura's{% endblock %}
 
 {% block content %}
-
 <main>
+{% comment %}
+La clase section-top indica la sección del contenido de la página que se encuentra
+justo debajo de la barra de navegación.
+{% endcomment %}
     <section class="section-top">
+        {# Importar plantilla de título de sección #}
         {% include 'section_title.html' with id='section-1' side='right' name='Acerca de nosotros' %}
 
-        <div class="row u-margin-top-16">
+        {# u-margin-top-32: asigna un margin-top de 32rem #}
+        <div class="row u-margin-top-32">
             <div class="col-1-of-2">
                 <h3 class="heading-tertiary">Repostería nacida en La Laguna</h3>
                 <p class="paragraph">

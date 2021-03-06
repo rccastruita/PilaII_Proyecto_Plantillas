@@ -1,23 +1,33 @@
+{% comment %}
+base.html
+Plantilla base del proyecto.
+Desde aquí se cargan los archivos css y js de la página. También se renderizan
+la barra de navegación y el pie de página.
+{% endcomment %}
+
 {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    {# Importar fuente de Google Fonts #}
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
-
+    {# Importar archivo css de fontawesome para íconos #}
     <link rel="stylesheet" type="text/css" href="{$ static 'fontawesome_free/css/all.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/icon-font.css' %}">
+    {# Cargar archivo estático de estilos #}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {# Cargar ícono para la pestaña del navegador #}
     <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}">
     <script src="{% static 'vendor/JQuery/jquery-3.5.1.js' %}"></script>
     <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+    {# Título default de la página, se puede cambiar en plantillas que hereden a la base #}
     <title>{% block title %}Laura's | Repostería Fina{% endblock %}</title>
 </head>
 
 <body>
+{# Etiqueta para la portada (usada en home.html) #}
 {% block header %}{% endblock %}
 
-<!-- Navbar -->
+{# Barra de navegación #}
 <nav class="navbar">
     <div class="navbar-background">
         <a href="{% url 'home' %}" 
@@ -43,8 +53,12 @@
 {% block content %}
 {% endblock content %}
 
-<!-- Footer -->
+{# Pie de página #}
 <footer>
+{% comment %}
+La clase row contiene columnas (divs de clase col-n-of-m).
+Dentro de las columnas se renderiza el contenido del pie de página.
+{% endcomment %}
     <div class="row">
         <div class="col-1-of-3">
             <p class="footer-title">
@@ -104,6 +118,6 @@
     </div>
 </footer>
 
-<!-- Script -->
+{# Cargar archivo js #}
 <script src="{% static 'js/script.js' %}"></script>
 </body>

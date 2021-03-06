@@ -1,3 +1,11 @@
+{% comment %}
+Plantilla de título de sección
+Renderiza un título de sección personalizado.
+{{ id }}: id del div de título
+{{ side }}: Indica la alineación del título (izquierda o derecha)
+{{ name }}: Texto a aparecer en el título
+{% endcomment %}
+
 <div class="section-title-container" id="{{ id|default:'section-1' }}">
     <div class="section-title section-title--{{ side|default:'left' }} u-margin-bottom-8">
         <h2 class="section-title__text section-title__text--{{ side|default:'left' }}">
