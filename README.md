@@ -19,10 +19,15 @@ pipenv install
 ```
 pipenv run ./manage.py runserver
 ```
+### Example deploys
+
+- [Heroku](https://lit-cliffs-17781.herokuapp.com/)
 ## Status
 Currently, this is just a static website rendered with Django templates. It uses a static css file to give style to the templates, in the future this will be done with a SCSS engine.
 ### TODO
+- [ ] Catalog page.
 - [ ] Refactor the css style into a group of SCSS files.
 - [ ] Move the static files to a CDN.
 - [ ] Serve dynamic pages.
 - [ ] Use a database to store data.
+- [ ] Admin page.
