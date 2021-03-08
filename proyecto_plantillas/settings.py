@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'e@53+!s8ssul%@drnu=^n@bb$0088jr2qis&zlol-k&w6*9#9='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False # Deploy de Heroku devuelve error si DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
