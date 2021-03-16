@@ -24,7 +24,7 @@ class Presentacion(models.Model):
     precio = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
-        return f"{self.detalle} ({self.producto}) {self.precio}"
+        return f"{self.producto.nombre} - {self.detalle}: ${self.precio}"
 
 class Sucursal(models.Model):
     nombre = models.CharField(max_length=40, default='Nombre_Sucursal')

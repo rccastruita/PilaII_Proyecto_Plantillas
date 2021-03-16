@@ -1,4 +1,5 @@
 from django.views.generic import ListView
+from django.views.generic.detail import DetailView
 from django.views.generic.base import TemplateView
 from . import env as MyVars
 from . import models as MyModels
@@ -9,8 +10,19 @@ class HomePageView(TemplateView):
 class AboutPageView(TemplateView):
     template_name = 'about.html'
 
-class ProductsPageView(TemplateView):
+class ProductsPageView(ListView):
+    model = MyModels.Producto
+    template_name = 'products.html'
+    context_object_name = 'productos'
+
+class ProductDetailView(DetailView):
+    model = MyModels.Producto
     template_name = 'soon.html'
+    context_object_name = 'producto'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 
 class ContactPageView(ListView):
     model = MyModels.Sucursal
