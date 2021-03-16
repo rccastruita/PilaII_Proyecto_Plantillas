@@ -129,3 +129,20 @@ STATICFILES_DIRS = [
 # For serving media files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# DEBUG LOGS
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        },
+    },
+}
