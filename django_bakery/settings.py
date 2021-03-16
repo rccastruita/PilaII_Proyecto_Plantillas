@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'django_bakery.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd4f83v6grnackq',
+        'USER': 'tybiddyamryewo',
+        'PASSWORD': 'd1638e36c900740650731368eae456be48a75462fe3531a88fa4f189d614b2ff',
+        'HOST': 'ec2-54-167-168-52.compute-1.amazonaws.com',
+        'PORT': '',
     }
 }
 
