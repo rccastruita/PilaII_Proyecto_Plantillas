@@ -1,3 +1,7 @@
+# env.py
+# variables de entorno para el servidor
+# actualmente solo se utiliza para actualizar la información de la versión actual
+
 version = '0.2.1.0'
 version_tag = f"V{version}"
 version_title = f"Version {version}"
