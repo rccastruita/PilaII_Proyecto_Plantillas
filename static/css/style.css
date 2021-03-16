@@ -559,7 +559,7 @@ footer {
 }
 
 .footer__version {
-  margin-top: 4em;
+  margin-top: 1em;
   font-size: 1.5rem;
   transition-duration: 0.5s;
   display: inline;
@@ -640,4 +640,8 @@ footer {
 .section-version li {
   font-size: 2rem;
   margin-left: 2rem;
+}
+
+.footer-paragraph {
+  font-size: 1.6rem;
 }
