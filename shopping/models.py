@@ -16,7 +16,7 @@ class Producto(models.Model):
     imagen_1 = models.ImageField(upload_to='models/producto/images', null=True)
 
     def __str__(self):
-        return f"{self.nombre} - {self.descripcion[:30]}..."
+        return f"{self.id} - {self.nombre} - {self.descripcion[:30]}..."
 
 class Presentacion(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
@@ -24,7 +24,7 @@ class Presentacion(models.Model):
     precio = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
-        return f"{self.producto.nombre} - {self.detalle}: ${self.precio}"
+        return f"{self.id} - {self.producto.nombre} - {self.detalle}: ${self.precio}"
 
 class Sucursal(models.Model):
     nombre = models.CharField(max_length=40, default='Nombre_Sucursal')
@@ -35,4 +35,4 @@ class Sucursal(models.Model):
     email = models.EmailField(default='mymail@bakery.com')
 
     def __str__(self):
-        return f"{self.nombre}"
+        return f"{self.id}: {self.nombre}"

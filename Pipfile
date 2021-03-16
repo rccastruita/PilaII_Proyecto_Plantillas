@@ -8,6 +8,7 @@ django = "*"
 fontawesome-free = "*"
 pillow = "*"
 gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 
