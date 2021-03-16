@@ -13,7 +13,6 @@ changelog = {
     'V0.2.1.0': [
         'Modelos Producto y Sucursal agregados.',
         'Modelos Categoría, Presentación agregados.'
-        'Corregido error al hacer deploy con DEBUG=False.(?)',
         'Vista Productos agregada.',
         'Vista Sucursales ahora es dinámica.',
         'Vista detalles Producto inicializada.',
