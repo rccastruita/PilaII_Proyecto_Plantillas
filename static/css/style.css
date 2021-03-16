@@ -557,3 +557,87 @@ footer {
 .footer-link:hover {
   font-weight: bolder;
 }
+
+.footer__version {
+  margin-top: 4em;
+  font-size: 1.5rem;
+  transition-duration: 0.5s;
+  display: inline;
+
+}
+
+.footer__version:hover {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.7rem;
+  
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border: 2px solid white;
+  padding: 0.2em;
+  border-radius: 20%;
+}
+
+.tooltip__link {
+  text-decoration: none;
+  color: white;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 14em;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -50%;
+  right: 120%;
+  margin-left: -7em;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 65%;
+  left: 105%;
+  margin-left: -5%;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent white;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.section-version {
+  background-color: #f7f7f7;
+  padding: 4rem;
+  margin-top: -30rem;
+  
+}
+
+.section-version h2 {
+  font-size: 3.5rem;
+}
+
+.section-version h3 {
+  font-size: 3rem;
+  font-family: sans-serif;
+  font-weight: normal;
+  margin-top: -0.5rem;
+}
+
+.section-version .paragraph,
+.section-version li {
+  font-size: 2rem;
+  margin-left: 2rem;
+}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <section class="section-top">
+        {% include 'section_title.html' with name=version_title %}
+    </section>
+    <section class="section-version">
+        <h2>Trabajo</h2>
+        <h3>
+            {{ version_description }}
+        </h3>
+        <h2>Historial de Cambios</h2>
+        {% for patch, changes in changelog.items %}
+            <h3>{{ patch }}</h3>
+            <ul class="changelog">
+                {{ changes | unordered_list }}
+            </ul>
+        {% endfor %}
+    </section>
+</main>
+{% endblock %}
