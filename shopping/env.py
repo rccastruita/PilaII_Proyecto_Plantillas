@@ -8,8 +8,12 @@ version_description = 'Tarea: Crear un Proyecto Django con bd y templates'
 changelog = {
     'V0.2.1.0': [
         'Modelos Producto y Sucursal agregados.',
-        'Corregido error al hacer deploy con DEBUG=False.',
+        'Modelos Categoría, Presentación agregados.'
+        'Corregido error al hacer deploy con DEBUG=False.(?)',
         'Vista Productos agregada.',
-        'Vista Sucursales ahora es dinámica.'
+        'Vista Sucursales ahora es dinámica.',
+        'Vista detalles Producto inicializada.',
+        'Distintas mejoras a la interfaz de usuario.',
+        'Pendiente refactorizar el código CSS.',
     ]
 }
