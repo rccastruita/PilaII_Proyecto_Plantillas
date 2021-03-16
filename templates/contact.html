@@ -7,49 +7,25 @@
 <main>
     <section class="section-top">
         {% include 'section_title.html' with id='section-1' side='right' name='Encuéntranos' %}
-        <div class="row u-margin-top-16">
-            <div class="col-1-of-3">
-                <h3 class="heading-tertiary">Saltillo 400</h3><hr>
-                <p class="paragraph">
-                    Saltillo 400 #550<br>
-                    Col. Ampliación La Rosita<br>
-                    Tel. <a class="btn-text" href="tel:8711234567">871-123-45-67</a>
+        
+        <div class="contact-grid">
+            {% for sucursal in sucursales %}
+            <div class="contact-grid__item">
+                <h3 class="contact-grid__item__name heading-tertiary">
+                    {{ sucursal.nombre }}
+                    <hr>
+                </h3>
+                <p class="contact-grid__item__paragraph">
+                    {{ sucursal.direccion }}<br>
+                    {{ sucursal.colonia }} C.P. {{ sucursal.codigo_postal }}
+                    
                 </p>
+                <a href="tel:{{ sucursal.telefono }}" class="contact-grid__item__button--left btn-text"><i class="fab fa-whatsapp"></i>  {{ sucursal.telefono }}</a>
+                
+                <a href="mailto:{{ sucursal.email }}" class="contact-grid__item__button--right btn-text">{{ sucursal.email }}</a>
+
             </div>
-            <div class="col-1-of-3">
-                <h3 class="heading-tertiary">Galerías</h3><hr>
-                <p class="paragraph">
-                    Av. Periférico Raúl López Sánchez No. 6000<br>
-                    Residencial El Fresno<br>
-                    Tel. <a class="btn-text" href="tel:8711234567">871-123-45-67</a>
-                </p>
-            </div>
-            <div class="col-1-of-3">
-                <h3 class="heading-tertiary">Cuatro Caminos</h3><hr>
-                <p class="paragraph">
-                    Blvd. Independencia #1300 Ote.<br>
-                    Col. Navarro<br>
-                    Tel. <a class="btn-text" href="tel:8711234567">871-123-45-67</a>
-                </p>
-            </div>
-        </div>
-        <div class="row u-margin-top-16">
-            <div class="col-1-of-3">
-                <h3 class="heading-tertiary">Constitución</h3><hr>
-                <p class="paragraph">
-                    Blvd. Constitución #1100<br>
-                    Col. Las Margaritas<br>
-                    Tel. <a class="btn-text" href="tel:8711234567">871-123-45-67</a>
-                </p>
-            </div>
-            <div class="col-1-of-3">
-                <h3 class="heading-tertiary">Gómez</h3><hr>
-                <p class="paragraph">
-                    Periférico Torreón – Gómez Km. 6.7 #501<br>
-                    Gómez Palacio<br>
-                    Tel. <a class="btn-text" href="tel:8711234567">871-123-45-67</a>
-                </p>
-            </div>
+            {% endfor %}
         </div>
     </section>
 </main>

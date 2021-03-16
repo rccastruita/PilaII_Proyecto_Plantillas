@@ -1,5 +1,7 @@
+from django.views.generic import ListView
 from django.views.generic.base import TemplateView
 from . import env as MyVars
+from . import models as MyModels
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
@@ -10,8 +12,10 @@ class AboutPageView(TemplateView):
 class ProductsPageView(TemplateView):
     template_name = 'soon.html'
 
-class ContactPageView(TemplateView):
+class ContactPageView(ListView):
+    model = MyModels.Sucursal
     template_name = 'contact.html'
+    context_object_name = 'sucursales'
 
 class SoonPageView(TemplateView):
     template_name = 'soon.html'

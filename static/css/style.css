@@ -213,7 +213,8 @@ body {
   padding: 3px;
   transition: all .2s; }
 
-.btn-text:hover {
+.btn-text:hover,
+.btn-text:focus {
   color: #ffffff;
   background-color: #ad4e00;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
@@ -429,7 +430,8 @@ body {
     height: 6rem;
     text-decoration: none;
     font-size: 2rem; }
-    .navbar__item:hover {
+    .navbar__item:hover,
+    .navbar__item:focus {
       background-color: #ddd;
       color: black; }
     .navbar__item--active {
@@ -554,7 +556,8 @@ footer {
   color: white;
 }
 
-.footer-link:hover {
+.footer-link:hover,
+.footer-link:focus {
   font-weight: bolder;
 }
 
@@ -566,7 +569,8 @@ footer {
 
 }
 
-.footer__version:hover {
+.footer__version:hover,
+.footer__version:focus {
   cursor: pointer;
   font-weight: bold;
   font-size: 1.7rem;
@@ -614,7 +618,8 @@ footer {
   border-color: transparent transparent transparent white;
 }
 
-.tooltip:hover .tooltiptext {
+.tooltip:hover .tooltiptext,
+.tooltip:focus .tooltiptext {
   visibility: visible;
 }
 
@@ -644,4 +649,42 @@ footer {
 
 .footer-paragraph {
   font-size: 1.6rem;
+}
+
+.contact-grid {
+  margin: 0 auto;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 4.5rem 5rem;
+  
+}
+
+.contact-grid__item {
+  display: grid;
+  /*grid-template-columns: 1fr 1fr;*/
+  grid-template: 
+    "a a" 0.5fr
+    "c c" 0.5fr
+    "d e" 0.5fr / 1fr 1fr;
+
+  column-gap: 3em;
+}
+
+.contact-grid__item__name {
+  grid-area: a;
+}
+
+.contact-grid__item__paragraph {
+  grid-area: c;
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
+
+.contact-grid__item__button--left {
+  grid-area: d;
+}
+
+.contact-grid__item__button--right {
+  grid-area: e;
 }

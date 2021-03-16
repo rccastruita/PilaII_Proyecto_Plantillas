@@ -30,9 +30,9 @@ class Sucursal(models.Model):
     nombre = models.CharField(max_length=40, default='Nombre_Sucursal')
     direccion = models.CharField(max_length=60, default='Direccion_Sucursal')
     colonia = models.CharField(max_length=40, default='Colonia_Sucursal')
-    codigo_postal = models.CharField(max_length=10, default='00000')
-    telefono = models.CharField(max_length=15)
-    email = models.EmailField
+    codigo_postal = models.CharField(max_length=10, default='27123')
+    telefono = models.CharField(max_length=15, default='8711234567')
+    email = models.EmailField(default='mymail@bakery.com')
 
     def __str__(self):
         return f"{self.nombre}"
