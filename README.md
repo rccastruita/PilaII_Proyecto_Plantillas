@@ -41,10 +41,12 @@ This version corresponds to an assignment from FullStack II:
 ### Notes
 - Django doesn't support serving files on deploy, it's advised to use a separate server for it. This means the server must run on *debug mode* to be able to serve files.
 - On one of the ListViews, there are links for dynamic pages (details for each product) but it's currently without any functionality.
+- To deploy the site on Heroku, another database engine must be used instead of sqlite. Since Heroku provides a free PostgreSQL database, that's what will be used.
 
 ### TODO
 - [x] Catalog page.
 - [ ] Refactor the css stylesheet into a group of SCSS files.
+- [ ] Refactor the design to be responsive.
 - [ ] Move the static files to a CDN.
 - [ ] Serve dynamic pages.
 - [x] Use a database to store data.

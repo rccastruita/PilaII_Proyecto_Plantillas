@@ -18,5 +18,6 @@ changelog = {
         'Vista detalles Producto inicializada.',
         'Distintas mejoras a la interfaz de usuario.',
         'Pendiente refactorizar el código CSS.',
+        'Base de datos cambiada de sqlite a PostgreSQL',
     ]
 }
