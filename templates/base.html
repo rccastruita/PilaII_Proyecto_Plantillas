@@ -42,7 +42,7 @@ la barra de navegación y el pie de página.
         class="navbar__item {% if request.path == '/about' %}navbar__item--active{% endif %}">
             Quiénes somos
         </a>
-        <a href="{% url 'products' %}" 
+        <a href="{% url 'product_list' %}" 
         class="navbar__item {% if request.path == '/products' %}navbar__item--active{% endif %}">
             Nuestros postres
         </a>
@@ -82,7 +82,7 @@ Dentro de las columnas se renderiza el contenido del pie de página.
         </div>
         <div class="col-1-of-3">
             <p class="footer-title">
-                <a href="{% url 'products' %}" class="footer-link">
+                <a href="{% url 'product_list' %}" class="footer-link">
                     Productos<hr>
                 </a>
             </p>

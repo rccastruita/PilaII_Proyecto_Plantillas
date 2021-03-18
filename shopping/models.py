@@ -19,6 +19,10 @@ class Producto(models.Model):
     def __str__(self):
         return f"{self.pk}:{self.nombre}"
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('product_detail', args=[str(self.pk)])
+
 class Presentacion(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     detalle = models.CharField(max_length=30, default='Detalle_Presentacion')

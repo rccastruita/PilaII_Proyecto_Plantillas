@@ -9,7 +9,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', MyViews.HomePageView.as_view(), name='home'),
     path('about', MyViews.AboutPageView.as_view(), name='about'),
-    path('products', MyViews.ProductsPageView.as_view(), name='products'),
+    path('products', MyViews.ProductListView.as_view(), name='product_list'),
     path('products/<int:pk>/', MyViews.ProductDetailView.as_view(), name='product_detail'),
     path('soon', MyViews.SoonPageView.as_view(), name='soon'),
     path('contact', MyViews.ContactPageView.as_view(), name='contact'),

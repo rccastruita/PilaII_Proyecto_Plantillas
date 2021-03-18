@@ -709,3 +709,66 @@ footer {
 .card__picture img {
   width: 100%;
 }
+
+.detail-grid {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template: 
+    "a b b" 1fr
+    "a b b" 1fr
+    "c c c" auto / 1.5fr 0.5fr 1fr;
+
+}
+
+.detail-grid__item {
+  font-size: 1.4rem;
+  padding: 2em 4em;
+  color: #222;
+}
+
+.detail-grid__item--a {
+  grid-area: a;
+  box-sizing: border-box;
+}
+
+.detail-grid__header {
+  font-size: 4rem;
+  font-family: "Cookie";
+}
+
+.detail-grid__description {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+}
+
+.detail-grid__item--b {
+  grid-area: b;
+  padding: 0;
+}
+
+.detail-grid__image {
+  width: 100%;
+}
+
+.detail-grid__item--c {
+  grid-area: c;
+  display: grid;
+  place-items: center;
+}
+
+.detail-grid__item--c h1 {
+  font-family: "Cookie";
+  font-size: 4rem;
+}
+
+.detail-grid__item--c ul {
+  grid-column: 1;
+  width: 60%;
+  list-style: none; }
+  .detail-grid__item--c ul li {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1rem; }
+  .detail-grid__item--c ul li:not(:last-child) {
+    border-bottom: 2px solid #ddd; }

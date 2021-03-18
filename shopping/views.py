@@ -10,19 +10,15 @@ class HomePageView(TemplateView):
 class AboutPageView(TemplateView):
     template_name = 'about.html'
 
-class ProductsPageView(ListView):
+class ProductListView(ListView):
     model = MyModels.Producto
     template_name = 'products.html'
     context_object_name = 'productos'
 
 class ProductDetailView(DetailView):
     model = MyModels.Producto
-    template_name = 'soon.html'
+    template_name = 'product_detail.html'
     context_object_name = 'producto'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
 
 class ContactPageView(ListView):
     model = MyModels.Sucursal
