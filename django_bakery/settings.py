@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'fontawesome-free', # icons
+    'gdstorage', # Google Drive storage API
 ]
 
 MIDDLEWARE = [
@@ -126,6 +127,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-# For serving media files
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+# Media files storage (Google Cloud)
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = os.path.join(BASE_DIR, 'credentials.json')
+GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = 'media'

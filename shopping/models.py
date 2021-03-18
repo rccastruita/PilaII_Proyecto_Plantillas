@@ -1,6 +1,7 @@
 from django.db import models
+from gdstorage.storage import GoogleDriveStorage # Google Cloud media files
 
-# Create your models here.
+gd_storage = GoogleDriveStorage() # Cloud file manager initialization
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=30, default='Nombre_Categoria')
@@ -13,7 +14,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=30, default='Nombre_Producto')
     categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT)
     descripcion = models.TextField(default="Descripcion_Producto")
-    imagen_1 = models.ImageField(upload_to='models/producto/images', null=True)
+    imagen_1 = models.ImageField(upload_to='productos', null=True, storage=gd_storage)
 
     def __str__(self):
         return f"{self.pk}:{self.nombre}"
