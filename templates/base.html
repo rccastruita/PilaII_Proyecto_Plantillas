@@ -6,6 +6,8 @@ la barra de navegación y el pie de página.
 {% endcomment %}
 
 {% load static %}
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,8 +23,10 @@ la barra de navegación y el pie de página.
     <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
     {# Título default de la página, se puede cambiar en plantillas que hereden a la base #}
     <title>{% block title %}Laura's | Repostería Fina{% endblock %}</title>
+    {% block extra_head %}{% endblock %}
 </head>
 
+{% block body %}
 <body>
 {# Etiqueta para la portada (usada en home.html) #}
 {% block header %}{% endblock %}
@@ -78,7 +82,7 @@ Dentro de las columnas se renderiza el contenido del pie de página.
         </div>
         <div class="col-1-of-3">
             <p class="footer-title">
-                <a href="{% url 'version' %}" class="footer-link">
+                <a href="{% url 'products' %}" class="footer-link">
                     Productos<hr>
                 </a>
             </p>
@@ -137,3 +141,5 @@ Dentro de las columnas se renderiza el contenido del pie de página.
 {# Cargar archivo js #}
 <script src="{% static 'js/script.js' %}"></script>
 </body>
+{% endblock %}
+</html>

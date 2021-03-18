@@ -13,92 +13,21 @@
 </main>
 
 {% comment %}
-Tarjetas animadas con css
-Las imágenes de fondo se cargan con css, al pasar el cursor sobre una tarjeta,
-ésta girará mostrando el reverso.
-{% endcomment %}
-<section class="section-features">
-    <div class="row carrusel-container">
-        <div class="col-1-of-2">
-            <div class="card card--foreground">
-                <div class="card__side card__side--front">
-                    <div class="card__picture card__picture--1">
-                        <!-- Image -->
-                    </div>
-                    <h4 class="card__heading">
-                        <span class="card__heading-span card__heading-span--1">
-                            Besos de fresa
-                        </span>
-                    </h4>
-                    <div class="card__details">
-                        <ul>
-                            <li>Con o sin azucar glass</li>
-                            <li>Bolsa de 100gr</li>
-                            <li>Caja de 500gr</li>
-                            <li>Caja de 1Kg</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card__side card__side--back card__side--back-1">
-                    <div class="card__picture card__picture--2">
-                        <!-- Image -->
-                    </div>
-                    <h4 class="card__heading">
-                        <span class="card__heading-span card__heading-span--1">
-                            Galletas M&M's
-                        </span>
-                    </h4>
-                    <div class="card__details">
-                        <ul>
-                            <li>Bolsa de 100gr</li>
-                            <li>Caja de 500gr</li>
-                            <li>Caja de 1Kg</li>
-                            <li>Galleta Grande (26cm)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-1-of-2">
-                <div class="card card--foreground">
-                    <div class="card__side card__side--front">
-                        <div class="card__picture card__picture--3">
-                            <!-- Image -->
-                        </div>
-                        <h4 class="card__heading">
-                            <span class="card__heading-span card__heading-span--1">
-                                Pay de Manzana
-                            </span>
-                        </h4>
-                        <div class="card__details">
-                            <ul>
-                                <li>Individual (12cm)</li>
-                                <li>Mediano (20cm)</li>
-                                <li>Grande (28cm)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card__side card__side--back card__side--back-1">
-                        <div class="card__picture card__picture--4">
-                            <!-- Image -->
-                        </div>
-                        <h4 class="card__heading">
-                            <span class="card__heading-span card__heading-span--1">
-                                Pay Fresas con Crema
-                            </span>
-                        </h4>
-                        <div class="card__details">
-                            <ul>
-                                <li>Individual (12cm)</li>
-                                <li>Mediano (20cm)</li>
-                                <li>Grande (28cm)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </div>
-</section>
 
+Página rota
+Posible contenido:
+- Carrusel promociones
+- Resumen Productos
+
+{% endcomment %}
+
+<section class="section-about">
+    <p class="paragraph">
+        {% lorem 2 b %}
+    </p>
+    <p class="paragraph">
+        {% lorem %}
+    </p>
+</section>
 
 {% endblock content %}
