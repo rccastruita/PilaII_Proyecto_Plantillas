@@ -1,3 +1,11 @@
+{% comment %}
+
+product_card.html
+Plantilla usada para mostrar los objetos de ProductListView
+Muestra la lista de objetos relacionados por llave foránea (modelo Presentacion)
+
+{% endcomment %}
+
 <a href="{{ producto.get_absolute_url }}" class="products-grid__item">
     <div class="card">
         <div class="card__side card__side--front">
@@ -12,7 +20,7 @@
             <div class="card__details">
                 <ul>
                     {% for presentacion in producto.presentacion_set.all %}
-                    <li> {{ presentacion.detalle }}:  ${{ presentacion.precio }} </li>
+                    <li> {{ presentacion.detalle }}: ${{ presentacion.precio }} </li>
                     {% endfor %}
                 </ul>
             </div>
