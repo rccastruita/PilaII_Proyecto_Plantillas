@@ -13,3 +13,6 @@ django-googledrive-storage = "*"
 
 [requires]
 python_version = "3.9"
+
+[scripts]
+start = "python manage.py runserver"
