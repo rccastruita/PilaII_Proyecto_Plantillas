@@ -9,29 +9,30 @@ la barra de navegación y el pie de página.
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {# Importar fuente de Google Fonts #}
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+  {# Google Fonts #}
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
-    {# Importar archivo css de fontawesome para íconos #}
-    <link rel="stylesheet" type="text/css" href="{% static 'fontawesome_free/css/all.min.css' %}">
+  {# Stylesheet #}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    {# Cargar archivo estático de estilos #}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {# JQuery #}
+  <script src="{% static 'vendor/JQuery/jquery-3.5.1.js' %}"></script>
 
-    {# Cargar ícono para la pestaña del navegador #}
-    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}">
+  {# fontawesome #}
+  <link rel="stylesheet" type="text/css" href="{% static 'fontawesome_free/css/all.min.css' %}">
+  <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
 
-    <script src="{% static 'vendor/JQuery/jquery-3.5.1.js' %}"></script>
-    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+  {# Título de la página, se puede cambiar en plantillas que hereden a 'base.html' #}
+  <title>{% block title %}Laura's | Repostería Fina{% endblock %}</title>
 
-    {# Título de la página, se puede cambiar en plantillas que hereden a 'base.html' #}
-    <title>{% block title %}Laura's | Repostería Fina{% endblock %}</title>
+  {# Favicon #}
+  <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}">
 
-    {# Bloque para etiquetas adicionales en <head> (En caso de requerirse) #}
-    {% block extra_head %}{% endblock %}
+  {# Bloque para etiquetas adicionales en <head> (En caso de requerirse) #}
+  {% block extra_head %}{% endblock %}
 
 </head>
 
@@ -45,25 +46,25 @@ la barra de navegación y el pie de página.
 
 {# Barra de navegación #}
 <nav class="navbar">
-    <div class="navbar-background">
-        <a href="{% url 'home' %}" 
-        class="navbar__item {% if request.path == '/' %}navbar__item--active{% endif %}">
-            Inicio
-        </a>
-        <a href="{% url 'about' %}" 
-        class="navbar__item {% if request.path == '/about' %}navbar__item--active{% endif %}">
-            Quiénes somos
-        </a>
-        <a href="{% url 'product_list' %}" 
-        class="navbar__item {% if request.path == '/products' %}navbar__item--active{% endif %}">
-            Nuestros postres
-        </a>
-        <a href="{% url 'contact' %}" 
-        class="navbar__item {% if request.path == '/contact' %}navbar__item--active{% endif %}">
-            Encuéntranos
-        </a>
-        <a class="navbar__item--span"></a>
-    </div>
+  <div class="navbar-background">
+    <a href="{% url 'home' %}" 
+    class="navbar__item {% if request.path == '/' %}navbar__item--active{% endif %}">
+      Inicio
+    </a>
+    <a href="{% url 'about' %}" 
+    class="navbar__item {% if request.path == '/about' %}navbar__item--active{% endif %}">
+      Quiénes somos
+    </a>
+    <a href="{% url 'product_list' %}" 
+    class="navbar__item {% if request.path == '/products' %}navbar__item--active{% endif %}">
+      Nuestros postres
+    </a>
+    <a href="{% url 'contact' %}" 
+    class="navbar__item {% if request.path == '/contact' %}navbar__item--active{% endif %}">
+      Encuéntranos
+    </a>
+    <a class="navbar__item--span"></a>
+  </div>
 </nav>
 
 {% block content %}
@@ -78,83 +79,83 @@ Dentro de las columnas se renderiza el contenido del pie de página.
 
 (Pendiente: cambiar estilo a grid de css)
 {% endcomment %}
-    <div class="row">
-        <div class="col-1-of-3">
-            <p class="footer-title">
-                <a href="" class="footer-link">Pedidos</a><hr>
-            </p>
-            <ul class="footer-list">
-                <li class="footer-list__item">
-                    <a href="" class="footer-link">Mayoreo</a>
-                </li>
-                <li class="footer-list__item">
-                    <a href="" class="footer-link">Pastel personalizado</a>
-                </li>
-                <li class="footer-list__item">
-                    <a href="" class="footer-link">Otro</a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-1-of-3">
-            <p class="footer-title">
-                <a href="{% url 'product_list' %}" class="footer-link">
-                    Productos<hr>
-                </a>
-            </p>
-            <ul class="footer-list">
-                <li class="footer-list__item">
-                    <a href="" class="footer-link">Pasteles</a>
-                </li>
-                <li class="footer-list__item">
-                    <a href="" class="footer-link">Cupcakes</a>
-                </li>
-                <li class="footer-list__item">
-                    <a href="" class="footer-link">Pays</a>
-                </li>
-                <li class="footer-list__item">
-                    <a href="" class="footer-link">Galletas</a>
-                </li>
-                <li class="footer-list__item">
-                    <a href="" class="footer-link">Brownies</a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-1-of-3 u-right-text">
-            <p class="u-right-text">
-                <a href="" class="btn-icon">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="" class="btn-icon">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="" class="btn-icon">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="" class="btn-icon">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </p>
-            <p class="footer-paragraph">
-                871-123-45-67<br>
-                contact@laura.reposteria.com
-            </p>
-            <br><br>
-            <p class="footer-paragraph">
-                developer: rccastruita@gmail.com
-            </p>
-
-            {# Información de la versión actual (Descripción de la tarea) #}
-            <span class="tooltip__link">
-                <div class="footer__version">
-                    <div class="tooltip">
-                        V0.2.2.0
-                        <span class="tooltiptext">- TAREA -<br>Crear un DetailView con modelos relacionados por llave foránea</span>
-                    </div>
-                </div>
-            </span>
-
-        </div>
+  <div class="row">
+    <div class="col-1-of-3">
+      <p class="footer-title">
+        <a href="" class="footer-link">Pedidos</a><hr>
+      </p>
+      <ul class="footer-list">
+        <li class="footer-list__item">
+          <a href="" class="footer-link">Mayoreo</a>
+        </li>
+        <li class="footer-list__item">
+          <a href="" class="footer-link">Pastel personalizado</a>
+        </li>
+        <li class="footer-list__item">
+          <a href="" class="footer-link">Otro</a>
+        </li>
+      </ul>
     </div>
+    <div class="col-1-of-3">
+      <p class="footer-title">
+        <a href="{% url 'product_list' %}" class="footer-link">
+          Productos<hr>
+        </a>
+      </p>
+      <ul class="footer-list">
+        <li class="footer-list__item">
+          <a href="" class="footer-link">Pasteles</a>
+        </li>
+        <li class="footer-list__item">
+          <a href="" class="footer-link">Cupcakes</a>
+        </li>
+        <li class="footer-list__item">
+          <a href="" class="footer-link">Pays</a>
+        </li>
+        <li class="footer-list__item">
+          <a href="" class="footer-link">Galletas</a>
+        </li>
+        <li class="footer-list__item">
+          <a href="" class="footer-link">Brownies</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-1-of-3 u-right-text">
+      <p class="u-right-text">
+        <a href="" class="btn-icon">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="" class="btn-icon">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="" class="btn-icon">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="btn-icon">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </p>
+      <p class="footer-paragraph">
+        871-123-45-67<br>
+        contact@laura.reposteria.com
+      </p>
+      <br><br>
+      <p class="footer-paragraph">
+        developer: rccastruita@gmail.com
+      </p>
+
+      {# Información de la versión actual (Descripción de la tarea) #}
+      <span class="tooltip__link">
+        <div class="footer__version">
+          <div class="tooltip">
+            V0.2.2.0
+            <span class="tooltiptext">- TAREA -<br>Crear un DetailView con modelos relacionados por llave foránea</span>
+          </div>
+        </div>
+      </span>
+
+    </div>
+  </div>
 </footer>
 
 {# Cargar archivo js #}

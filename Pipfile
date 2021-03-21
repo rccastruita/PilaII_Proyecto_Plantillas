@@ -16,3 +16,4 @@ python_version = "3.9"
 
 [scripts]
 start = "python manage.py runserver"
+compile_sass = "sass --watch static/sass:static/css"
