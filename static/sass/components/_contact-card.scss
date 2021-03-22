@@ -1,0 +1,55 @@
+@use '../abstracts/colors';
+
+.contact-card {
+
+    &__heading {
+        color: colors.$primary-light;
+        position: relative;
+        grid-area: a;
+        width: 100%;
+        border-bottom: colors.$primary-light solid 1px;
+        
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__edit {
+        display: inline-block;
+        position: static;
+        padding-left: 15rem;
+
+        a {
+            color: colors.$primary-light;
+            text-decoration: none;
+        }
+
+    }
+}
+
+.contact-grid__item--centered {
+    place-items: center;
+    grid-column: 3;
+}
+
+.contact-add {
+    font-size: 4rem;
+    display: block;
+    margin: auto;
+    color: colors.$primary-light;
+
+    a {
+        color: colors.$primary-light;
+    }
+}
+
+form {
+    margin-left: 4rem;
+}
+
+form label {
+    font-size: 2rem;
+}
+
+.form-label {
+    font-size: 2rem;
+}

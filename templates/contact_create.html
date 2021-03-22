@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrar Sucursal - Laura's{% endblock title %}
+
+{% block content %}
+
+<main>
+  <section class="section-top">
+    {% include 'section_title.html' with name='Registrar Sucursal' %}
+      <form action="" method="POST">{% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" name="guardar" value="Guardar">
+      </form>
+  </section>
+</main>
+{% endblock content %}
