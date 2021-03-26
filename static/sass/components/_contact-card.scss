@@ -3,11 +3,11 @@
 .contact-card {
 
     &__heading {
-        color: colors.$primary-light;
-        position: relative;
         grid-area: a;
-        width: 100%;
+        color: colors.$primary-light;
         border-bottom: colors.$primary-light solid 1px;
+        width: 100%;
+        position: relative;
         
         display: flex;
         justify-content: space-between;

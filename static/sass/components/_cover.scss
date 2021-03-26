@@ -1,6 +1,10 @@
 @use '../abstracts/colors';
 @use '../base/font-face';
 
+html {
+  font-size: 62.5%;
+}
+
 .hero {
   height: 100vh;
   width: 100vw;
@@ -43,6 +47,12 @@
 
   &__slogan {
     grid-area: d;
+    font-size: 4rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: bolder;
+    color: colors.$white;
+    text-align: right;
+    padding-right: 10vmin;
   }
 
   &__action {
