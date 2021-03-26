@@ -1,0 +1,22 @@
+@use '../base/font-face';
+
+p,
+a {
+  font-family: 'Roboto', sans-serif;
+}
+
+.logo {
+  text-align: center;
+  font-family: 'Dancing Script';
+  
+  &__top {
+    font-size: 1.8em;
+    font-weight: 400;
+  }
+
+  &__bottom {
+    font-size: 0.7em;
+    font-weight: 400;
+  }
+
+}

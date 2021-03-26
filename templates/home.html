@@ -2,14 +2,16 @@
 {% load static %}
 
 {% block header %}
-{% include 'header.html' %}
+    {% include 'hero.html' %}
 {% endblock %}
 
 {% block content %}
 <main>
+{% comment %}
     <section class="section-top">
         {% include 'section_title.html' with name='Conoce nuestros postres' %}
     </section>
+{% endcomment %}
 </main>
 
 {% comment %}

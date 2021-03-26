@@ -23,14 +23,14 @@ Renderiza la portada del sitio usada en home.html
 {% load static %}
 
 <header class="hero">
-  <div class="hero__heading">
-    <h1>Laura's</h1>
-    <h2>Repostería Artesanal</h2>
+  <div class="logo hero__logo">
+    <h1 class="logo__top">Laura's</h1>
+    <h2 class="logo__bottom">Repostería Artesanal</h2>
   </div>
   <div class="hero__slogan">
-    Como recién horneado en tu hogar
+    Los mejores postres caseros de La Laguna
   </div>
-  <div class="hero__action">
-    <a href="btn">Descubre tu favorito</a>
+  <div class="hero__cta">
+    <a class="btn btn--black" href="{% url 'product_list' %}">Descubre tu favorito</a>
   </div>
 </header>

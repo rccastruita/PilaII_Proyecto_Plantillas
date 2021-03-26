@@ -1,6 +1,6 @@
 @use 'abstracts/colors';
 @use 'base';
-@use 'components/cover';
+@use 'layouts/hero';
+@use 'components';
 
-@use 'old';
 @use 'components/contact-card';
