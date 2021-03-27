@@ -44,7 +44,12 @@ la barra de navegación y el pie de página.
 {# Etiqueta para la portada (usada en home.html) #}
 {% block header %}{% endblock %}
 
+{% block menu %}
+  {% include 'navbar.html' %}
+{% endblock menu %}
+
 {# Barra de navegación #}
+{% comment %}
 <nav class="navbar">
   <div class="navbar-background">
     <a href="{% url 'home' %}" 
@@ -66,6 +71,7 @@ la barra de navegación y el pie de página.
     <a class="navbar__item--span"></a>
   </div>
 </nav>
+{% endcomment %}
 
 {% block content %}
 {% endblock content %}

@@ -1,26 +1,10 @@
 {% comment %}
 
-Plantilla header
-Renderiza la portada del sitio usada en home.html
+hero.html
+Plantilla para el hero (Portada) de la página Home
+Incluye un Call To Action a la página del catálogo de productos
 
 {% endcomment %}
-
-{% comment %}
-
-<header class="header" id="home">
-  <div class="header__logo-box header__logo-box--fadingIn">
-    <span class="header__logo-box__text">Laura's</span>
-  </div>
-  <div class="header__text-box">
-    <h1 class="heading-primary heading-primary--sliding-in">
-      <span class="heading-primary--sub">Repostería Fina</span>
-    </h1>
-  </div>
-</header>
-
-{% endcomment %}
-
-{% load static %}
 
 <header class="hero">
   <div class="logo hero__logo">
@@ -28,7 +12,10 @@ Renderiza la portada del sitio usada en home.html
     <h2 class="logo__bottom">Repostería Artesanal</h2>
   </div>
   <div class="hero__slogan">
-    Los mejores postres caseros de La Laguna
+    <h1>
+      <strong>Los mejores</strong>
+      <br>postres caseros de La Laguna
+    </h1>
   </div>
   <div class="hero__cta">
     <a class="btn btn--black" href="{% url 'product_list' %}">Descubre tu favorito</a>

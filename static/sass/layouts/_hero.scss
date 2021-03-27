@@ -14,7 +14,7 @@
     margin: 0 auto;
 
     background-image:
-      linear-gradient(to bottom right, rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 1)),
+      linear-gradient(to bottom right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)),
       url(../img/hero_background.jpg);
     background-size: cover;
     background-position: center;
@@ -32,21 +32,34 @@
   }
 
   &__logo {
-      padding-top: 1.7em;
+      padding-top: 9vh;
       font-size: 1.7rem;
   }
 
   &__slogan {
-      font-family: 'Roboto', sans-serif;
-      font-weight: 900;
-      font-size: 2.5rem;
+    display: block;
+    margin: 0 auto;
+    width: 70vw;
+    margin-top: 13vh;
+
+    h1 {
       text-align: center;
-      margin: 2.3em 1rem 0;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 100;
+      font-size: 9vmin;
+      line-height: 8vmin;
+      
+      strong {
+        font-weight: 900;
+        font-size: 12.5vmin;
+        line-height: 15vmin;
+      }
+    }
   }
 
   &__cta {
-      margin: 4em auto;
-      text-align: center;
+    margin: 15vh auto 0;
+    text-align: center;
   }
 
 }
