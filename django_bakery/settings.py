@@ -25,7 +25,7 @@ SECRET_KEY = '9_u(upj=f=99s9kx^n*99r2=*r02!s!2wq%8)8)i_qzcz$u1u$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

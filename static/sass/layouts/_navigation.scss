@@ -1,0 +1,39 @@
+.navbar {
+  z-index: 200;
+  position: fixed;
+  margin: 0;
+  height: calc(var(--navbar-icon-size) + var(--navbar-padding));
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+  width: 100vw;
+  background-color: black;
+  color: white;
+
+  &--bottom {
+    bottom: 0;
+  }
+
+  &--top {
+    top: 0;
+  }
+  
+  &__item {
+    background: none;
+    border: none;
+    flex-basis: content;
+  }
+  
+  &__icon {
+    width: var(--navbar-icon-size);
+    height: var(--navbar-icon-size);
+    fill: white;
+  }
+
+  &__text {
+    color: white;
+    display: none;
+  }
+}

@@ -1,4 +1,5 @@
 @use '../abstracts/colors';
+@use '../abstracts/mixins';
 
 .hero {
   color: white;
@@ -32,33 +33,40 @@
   }
 
   &__logo {
-      padding-top: 9vh;
-      font-size: 1.7rem;
+      @include mixins.absolute-centered;
+      top: 5%;
+      font-size: min(6vh, 1.7rem, 10vw);
   }
 
   &__slogan {
+    @include mixins.absolute-centered;
+
     display: block;
-    margin: 0 auto;
+    top: 30%;
+
     width: 70vw;
-    margin-top: 13vh;
+    margin: 0 auto;
 
     h1 {
       text-align: center;
       font-family: 'Roboto', sans-serif;
       font-weight: 100;
-      font-size: 9vmin;
-      line-height: 8vmin;
+      font-size: min(9vmin, 3rem);
+      line-height: 0.8em;
       
       strong {
         font-weight: 900;
-        font-size: 12.5vmin;
-        line-height: 15vmin;
+        font-size: 1.34em;
+        line-height: 1.3em;
       }
     }
   }
 
   &__cta {
-    margin: 15vh auto 0;
+    @include mixins.absolute-centered;
+
+    //bottom: clamp(var(--navbar-icon-size) + var(--navbar-padding) + 2em, 25%, 30em);
+    bottom: min(var(--navbar-padding) + var(--navbar-icon-size) + 20%);
     text-align: center;
   }
 

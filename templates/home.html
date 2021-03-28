@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% include 'hero.html' %}
+  {% include 'hero.html' %}
 <main>
-{% comment %}
-    <section class="section-top">
-        {% include 'section_title.html' with name='Conoce nuestros postres' %}
-    </section>
-{% endcomment %}
+
+<section class="section-about">
+  <p class="paragraph">
+    {% lorem 2 b %}
+  </p>
+  <p class="paragraph">
+    {% lorem %}
+  </p>
+</section>
+
 </main>
 
 {% comment %}
@@ -20,13 +25,5 @@ Posible contenido:
 
 {% endcomment %}
 
-<section class="section-about">
-    <p class="paragraph">
-        {% lorem 2 b %}
-    </p>
-    <p class="paragraph">
-        {% lorem %}
-    </p>
-</section>
 
 {% endblock content %}

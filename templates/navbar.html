@@ -22,16 +22,19 @@
 </nav>
 {% endcomment %}
 
-<nav class="navbar">
-<div class="navbar__item">
-  
-</div>
-<div class="navbar__item">
-
-</div>
-<div class="navbar__item">
-
-</div>
-
-
+<nav class="navbar navbar--bottom">
+  <a href="{% url 'product_list' %}" class="navbar__item">
+    <svg class="navbar__icon"><use href="#cake-icon"></use></svg>
+    <span class="navbar__text">Productos</span>
+  </a>
+  <a href="{% url 'home' %}" class="navbar__item">
+    <svg class="navbar__icon"><use href="#discount-icon"></use></svg>
+    <span class="navbar__text">Promociones</span>
+  </a>
+  <a href="{% url 'home' %}" class="navbar__item">
+    <svg class="navbar__icon"><use href="#cart-icon"></use></svg>
+  </a>
+  <button class="navbar__item">
+    <svg class="navbar__icon"><use href="#menu-icon"></use></svg>
+  </button>
 </nav>

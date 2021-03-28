@@ -12,9 +12,6 @@ la barra de navegación y el pie de página.
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {# Google Fonts #}
-  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
-
   {# Stylesheet #}
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
@@ -42,36 +39,14 @@ la barra de navegación y el pie de página.
 <body>
 
 {# Etiqueta para la portada (usada en home.html) #}
-{% block header %}{% endblock %}
+{% block header %}
+  {% include 'header.html' %}
+{% endblock %}
 
+{# Barra de navegación #}
 {% block menu %}
   {% include 'navbar.html' %}
 {% endblock menu %}
-
-{# Barra de navegación #}
-{% comment %}
-<nav class="navbar">
-  <div class="navbar-background">
-    <a href="{% url 'home' %}" 
-    class="navbar__item {% if request.path == '/' %}navbar__item--active{% endif %}">
-      Inicio
-    </a>
-    <a href="{% url 'about' %}" 
-    class="navbar__item {% if request.path == '/about' %}navbar__item--active{% endif %}">
-      Quiénes somos
-    </a>
-    <a href="{% url 'product_list' %}" 
-    class="navbar__item {% if request.path == '/products' %}navbar__item--active{% endif %}">
-      Nuestros postres
-    </a>
-    <a href="{% url 'contact' %}" 
-    class="navbar__item {% if request.path == '/contact' %}navbar__item--active{% endif %}">
-      Encuéntranos
-    </a>
-    <a class="navbar__item--span"></a>
-  </div>
-</nav>
-{% endcomment %}
 
 {% block content %}
 {% endblock content %}
@@ -163,6 +138,9 @@ Dentro de las columnas se renderiza el contenido del pie de página.
     </div>
   </div>
 </footer>
+
+{# SVG icons #}
+{% include 'vectors.html' %}
 
 {# Cargar archivo js #}
 <script src="{% static 'js/script.js' %}"></script>
