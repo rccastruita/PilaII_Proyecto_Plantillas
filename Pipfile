@@ -8,6 +8,7 @@ django = "*"
 fontawesome-free = "*"
 pillow = "*"
 django-googledrive-storage = "*"
+gunicorn = "*"
 
 [dev-packages]
 
@@ -15,5 +16,5 @@ django-googledrive-storage = "*"
 python_version = "3.9"
 
 [scripts]
-start = "python manage.py runserver"
+start = "python manage.py runserver 0.0.0.0:8000"
 compile_sass = "sass --watch static/sass:static/css"
