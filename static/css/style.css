@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cookie&family=Lato:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:not([class]) {
+  text-decoration: auto;
+  text-decoration-skip-ink: auto;
+}
+
+:root {
+  --navbar-height: 4rem;
+  --navbar-icon-size: calc(var(--navbar-height) * 5 / 8);
+}
+
+p,
+a {
+  font-family: "Roboto", sans-serif;
+}
+
+.logo {
+  text-align: center;
+  font-family: "Dancing Script";
+}
+.logo__top {
+  font-size: 1.8em;
+  font-weight: 400;
+}
+.logo__bottom {
+  font-size: 0.7em;
+  font-weight: 400;
+}
+
+.hero {
+  color: white;
+  position: relative;
+  font-size: 1rem;
+  width: 100vw;
+  height: 100vh;
+}
+.hero::before {
+  content: "";
+  overflow: hidden;
+  margin: 0 auto;
+  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.8), black), url(../img/hero_background.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100vh;
+  height: 100vw;
+  z-index: -1;
+  transform: rotate(-90deg);
+  transform-origin: left top;
+  position: absolute;
+  top: 100vh;
+}
+.hero__logo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5%;
+  font-size: min(6vh, 1.7rem, 10vw);
+}
+.hero__slogan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: block;
+  top: 30%;
+  width: 70vw;
+  margin: 0 auto;
+}
+.hero__slogan h1 {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: min(9vmin, 3rem);
+  line-height: 0.8em;
+}
+.hero__slogan h1 strong {
+  font-weight: 900;
+  font-size: 1.34em;
+  line-height: 1.3em;
+}
+.hero__cta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: min(var(--navbar-height) + 20%);
+  text-align: center;
+}
+
+.header {
+  visibility: hidden;
+}
+
+.navbar {
+  z-index: 200;
+  position: fixed;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+  background-color: black;
+  color: white;
+}
+.navbar--bottom {
+  bottom: 0;
+}
+.navbar--top {
+  top: 0;
+}
+.navbar__item {
+  background: none;
+  border: none;
+  flex-basis: content;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-basis: var(--navbar-height);
+  height: var(--navbar-height);
+}
+.navbar__item:hover {
+  background-color: white;
+}
+.navbar__item:hover svg {
+  fill: black;
+}
+.navbar__button {
+  background-color: #333;
+}
+.navbar__button--active {
+  background-color: white;
+}
+.navbar__button--active svg {
+  fill: black;
+}
+.navbar__icon {
+  width: var(--navbar-icon-size);
+  height: var(--navbar-icon-size);
+  fill: white;
+}
+.navbar__text {
+  color: white;
+  display: none;
+}
+
+.dropdown {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  display: none;
+  flex-flow: column;
+  width: 100%;
+}
+.dropdown--visible {
+  display: flex;
+}
+.dropdown__item {
+  padding: 1em;
+  background-color: #333;
+  outline: 2px solid black;
+  color: white;
+}
+
+.contact-card__heading {
+  grid-area: a;
+  color: #AD4E00;
+  border-bottom: #AD4E00 solid 1px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.contact-card__edit {
+  display: inline-block;
+  position: static;
+  padding-left: 15rem;
+}
+.contact-card__edit a {
+  color: #AD4E00;
+  text-decoration: none;
+}
+
+.contact-grid__item--centered {
+  place-items: center;
+  grid-column: 3;
+}
+
+.contact-add {
+  font-size: 4rem;
+  display: block;
+  margin: auto;
+  color: #AD4E00;
+}
+.contact-add a {
+  color: #AD4E00;
+}
+
+form {
+  margin-left: 4rem;
+}
+
+form label {
+  font-size: 2rem;
+}
+
+.form-label {
+  font-size: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1em 2em;
+  text-decoration: none;
+  font-weight: 900;
+}
+.btn--black {
+  color: white;
+  background-color: black;
+  border: 2px solid grey;
+  border-radius: 10em;
+}
+
+/*# sourceMappingURL=style.css.map */
