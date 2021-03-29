@@ -66,7 +66,7 @@
     @include mixins.absolute-centered;
 
     //bottom: clamp(var(--navbar-icon-size) + var(--navbar-padding) + 2em, 25%, 30em);
-    bottom: min(var(--navbar-padding) + var(--navbar-icon-size) + 20%);
+    bottom: min(var(--navbar-height) + 20%);
     text-align: center;
   }
 

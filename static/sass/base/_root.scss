@@ -1,4 +1,4 @@
 :root {
-  --navbar-icon-size: 2.5rem;
-  --navbar-padding: 1.5rem;
+  --navbar-height: 4rem;
+  --navbar-icon-size: calc(var(--navbar-height) * 5 / 8);
 }

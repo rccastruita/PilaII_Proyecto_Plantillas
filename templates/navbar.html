@@ -1,27 +1,3 @@
-{% comment %}
-<nav class="navbar">
-  <div class="navbar-background">
-    <a href="{% url 'home' %}" 
-    class="navbar__item {% if request.path == '/' %}navbar__item--active{% endif %}">
-      Inicio
-    </a>
-    <a href="{% url 'about' %}" 
-    class="navbar__item {% if request.path == '/about' %}navbar__item--active{% endif %}">
-      Quiénes somos
-    </a>
-    <a href="{% url 'product_list' %}" 
-    class="navbar__item {% if request.path == '/products' %}navbar__item--active{% endif %}">
-      Nuestros postres
-    </a>
-    <a href="{% url 'contact' %}" 
-    class="navbar__item {% if request.path == '/contact' %}navbar__item--active{% endif %}">
-      Encuéntranos
-    </a>
-    <a class="navbar__item--span"></a>
-  </div>
-</nav>
-{% endcomment %}
-
 <nav class="navbar navbar--bottom">
   <a href="{% url 'product_list' %}" class="navbar__item">
     <svg class="navbar__icon"><use href="#cake-icon"></use></svg>
@@ -34,7 +10,21 @@
   <a href="{% url 'home' %}" class="navbar__item">
     <svg class="navbar__icon"><use href="#cart-icon"></use></svg>
   </a>
-  <button class="navbar__item">
+  <button class="navbar__item navbar__button" id="navbar-dropdown-button">
     <svg class="navbar__icon"><use href="#menu-icon"></use></svg>
   </button>
+  <div class="dropdown">
+    <a href="{% url 'home' %}" class="dropdown__item">
+      Home
+    </a>
+    <a href="{% url 'product_list' %}" class="dropdown__item">
+      Products
+    </a>
+    <a href="{% url 'about' %}" class="dropdown__item">
+      About
+    </a>
+    <a href="{% url 'contact' %}" class="dropdown__item">
+      Contact
+    </a>
+  </div>
 </nav>

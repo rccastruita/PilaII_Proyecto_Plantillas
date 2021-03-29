@@ -1,0 +1,21 @@
+.dropdown {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  
+  display: none;
+  flex-flow: column;
+  width: 100%;
+  
+  &--visible {
+    display: flex;
+  }
+
+  &__item {
+    padding: 1em;
+    background-color: white;
+    outline: 2px solid black;
+    color: black;
+  }
+
+}

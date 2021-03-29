@@ -2,19 +2,19 @@
 
 {% block content %}
   {% include 'hero.html' %}
-<main>
 
-<section class="section-about">
-  <p class="paragraph">
-    {% lorem 2 b %}
-  </p>
-  <p class="paragraph">
-    {% lorem %}
-  </p>
-</section>
+  <main>
 
-</main>
+  <h1>Header 1</h1>
+  {% lorem 3 p %}
 
+  <h2>Header 2</h2>
+  {% lorem 2 p %}
+
+  <h3>Header 3</h3>
+  {% lorem 1 p %}
+
+  </main>
 {% comment %}
 
 Página rota
@@ -24,6 +24,5 @@ Posible contenido:
 - Info tarea actual
 
 {% endcomment %}
-
 
 {% endblock content %}

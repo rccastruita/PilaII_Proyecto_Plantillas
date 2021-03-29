@@ -2,7 +2,6 @@
   z-index: 200;
   position: fixed;
   margin: 0;
-  height: calc(var(--navbar-icon-size) + var(--navbar-padding));
   
   display: flex;
   align-items: center;
@@ -24,8 +23,35 @@
     background: none;
     border: none;
     flex-basis: content;
+    
+    align-items: center;
+    justify-content: center;
+    
+    display: flex;
+
+    flex-basis: var(--navbar-height);
+    height: var(--navbar-height);
+
+    &:hover {
+      background-color: white;
+      
+      svg {
+        fill: black;
+      }
+    }
   }
-  
+
+  &__button {
+    background-color: #333;
+
+    &--active {
+      background-color: white;
+      svg {
+        fill: black;
+      }
+    }
+  }
+
   &__icon {
     width: var(--navbar-icon-size);
     height: var(--navbar-icon-size);
