@@ -4,14 +4,13 @@
 
 {% block content %}
 <main>
-    <section class="section-top">
-        {% include 'section_title.html' with name='Productos' %}
+  <section class="grid section section--products">
+    <h1 class="section__title">Productos</h1>
+        
+    {% for producto in productos %}
+      {% include 'product_card.html' with producto=producto %}
+    {% endfor %}
 
-        <div class="products-grid">
-            {% for producto in productos %}
-                {% include 'product_card.html' with producto=producto %}
-            {% endfor %}
-        </div>
-    </section>
+  </section>
 </main>
 {% endblock %}

@@ -47,9 +47,15 @@ a {
   font-family: "Roboto", sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Dancing Script";
+  font-weight: 700;
+}
+
 .logo {
   text-align: center;
   font-family: "Dancing Script";
+  display: block;
 }
 .logo__top {
   font-size: 1.8em;
@@ -58,6 +64,19 @@ a {
 .logo__bottom {
   font-size: 0.7em;
   font-weight: 400;
+}
+
+.icon-sprite {
+  display: none;
+}
+
+.u-outline {
+  outline-width: 2px;
+  outline-style: dashed;
+  outline-color: black;
+}
+.u-outline--white {
+  outline-color: white;
 }
 
 .hero {
@@ -88,6 +107,7 @@ a {
   right: 0;
   top: 5%;
   font-size: min(6vh, 1.7rem, 10vw);
+  display: block;
 }
 .hero__slogan {
   position: absolute;
@@ -190,6 +210,28 @@ a {
   background-color: #333;
   outline: 2px solid black;
   color: white;
+}
+.dropdown__item:hover {
+  background-color: white;
+  color: black;
+}
+
+.section {
+  padding: 1rem;
+}
+.section p {
+  margin-bottom: 1rem;
+}
+.section--products {
+  padding: 0;
+}
+.section__title {
+  font-family: "Dancing Script";
+}
+
+.footer {
+  background-color: grey;
+  margin-bottom: var(--navbar-height);
 }
 
 .contact-card__heading {

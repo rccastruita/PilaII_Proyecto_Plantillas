@@ -1,0 +1,15 @@
+.section {
+  padding: 1rem;
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  &--products {
+    padding: 0;
+  }
+
+  &__title {
+    font-family: "Dancing Script";
+  }
+}

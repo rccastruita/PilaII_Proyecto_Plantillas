@@ -36,6 +36,7 @@
       @include mixins.absolute-centered;
       top: 5%;
       font-size: min(6vh, 1.7rem, 10vw);
+      display: block;
   }
 
   &__slogan {

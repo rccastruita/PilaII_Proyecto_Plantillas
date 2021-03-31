@@ -5,9 +5,19 @@ a {
   font-family: 'Roboto', sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Dancing Script";
+  font-weight: 700;
+}
+
+ul, ol {
+  
+}
+
 .logo {
   text-align: center;
   font-family: 'Dancing Script';
+  display: block;
   
   &__top {
     font-size: 1.8em;
