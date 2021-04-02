@@ -1,3 +1,5 @@
+@use '../abstracts/mixins';
+
 .navbar {
   z-index: 200;
   position: fixed;
@@ -32,24 +34,25 @@
     flex-basis: var(--navbar-height);
     height: var(--navbar-height);
 
-    &:hover {
+    @include mixins.hover {
+      background-color: white;
+      svg {
+        fill: black;
+      }
+    }
+
+    &:active {
       background-color: white;
       
       svg {
         fill: black;
       }
     }
+
   }
 
   &__button {
     background-color: #333;
-
-    &--active {
-      background-color: white;
-      svg {
-        fill: black;
-      }
-    }
   }
 
   &__icon {
