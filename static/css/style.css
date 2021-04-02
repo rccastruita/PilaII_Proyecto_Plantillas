@@ -40,6 +40,7 @@ a:not([class]) {
 :root {
   --navbar-height: 4rem;
   --navbar-icon-size: calc(var(--navbar-height) * 5 / 8);
+  --header-height: 2rem;
 }
 
 p,
@@ -77,6 +78,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 .u-outline--white {
   outline-color: white;
+}
+
+.u-margin-header {
+  margin-top: var(--header-height);
 }
 
 .hero {
@@ -139,7 +144,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header {
-  visibility: hidden;
+  height: var(--header-height);
+  background-color: black;
+  z-index: 20;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+.header__home-link {
+  height: 100%;
+  color: white;
+  background-color: grey;
+  display: grid;
+  place-items: center;
 }
 
 .navbar {
@@ -216,22 +235,34 @@ h1, h2, h3, h4, h5, h6 {
   color: black;
 }
 
-.section {
-  padding: 1rem;
+main {
+  max-width: 100vw;
+  overflow: hidden;
 }
+
 .section p {
   margin-bottom: 1rem;
 }
-.section--products {
-  padding: 0;
-}
 .section__title {
   font-family: "Dancing Script";
+  font-size: 3rem;
+}
+
+.section-products-list {
+  width: min(95%);
+  margin: calc(var(--header-height)) auto 2rem;
 }
 
 .footer {
   background-color: grey;
   margin-bottom: var(--navbar-height);
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: max-content;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem;
 }
 
 .contact-card__heading {
@@ -291,6 +322,51 @@ form label {
   background-color: black;
   border: 2px solid grey;
   border-radius: 10em;
+}
+.btn:hover {
+  filter: invert(100%);
+}
+
+.card {
+  display: grid;
+  grid-template-rows: 15rem 2rem auto;
+  border: 2px solid black;
+  border-radius: 1px;
+}
+.card:hover {
+  filter: opacity(70%);
+}
+.card__picture {
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.card__heading {
+  grid-row: 2;
+  background-color: black;
+  color: white;
+  text-align: center;
+  display: grid;
+  place-items: center;
+}
+.card__details {
+  grid-row: 3;
+  background-color: white;
+  color: black;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  padding: 0.8rem;
+}
+.card__details ul {
+  margin: 0;
+  padding: 0;
+}
+
+.presentation__name {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,15 +1,21 @@
-.section {
-  padding: 1rem;
+main {
+  max-width: 100vw;
+  overflow: hidden;
+}
 
+.section {
   p {
     margin-bottom: 1rem;
   }
-
-  &--products {
-    padding: 0;
-  }
-
+  
   &__title {
     font-family: "Dancing Script";
+    font-size: 3rem;
   }
+}
+
+.section-products-list {
+  width: min(95%);
+  margin: calc(var(--header-height)) auto 2rem;
+  
 }

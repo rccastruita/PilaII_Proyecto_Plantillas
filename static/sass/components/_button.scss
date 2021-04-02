@@ -9,6 +9,11 @@
     background-color: black;
     border: 2px solid grey;
     border-radius: 10em;
+
+  }
+  
+  &:hover {
+    filter: invert(100%);
   }
 
 }

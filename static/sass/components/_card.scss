@@ -1,0 +1,56 @@
+@use '../abstracts/variables';
+
+.card {
+  display: grid;
+
+  grid-template-rows: 15rem 2rem auto;
+
+  border: 2px solid black;
+  border-radius: 1px;
+
+  &:hover {
+    filter: opacity(70%);
+
+  }
+
+  &__picture {
+    grid-row: 1;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  &__heading {
+    grid-row: 2;
+    
+    background-color: black;
+    color: white;
+    text-align: center;
+    display: grid;
+    place-items: center;
+  }
+  
+  &__details {
+    grid-row: 3;
+    
+    background-color: white;
+    color: black;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    padding: 0.8rem;
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.presentation {
+    &__name {
+      display: none;
+    }
+}

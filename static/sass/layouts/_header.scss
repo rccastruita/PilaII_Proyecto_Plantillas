@@ -1,3 +1,21 @@
 .header {
-  visibility: hidden;
+  height: var(--header-height);
+  background-color: black;
+  z-index: 20;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  display: grid;
+  place-items: center;
+
+  &__home-link {
+    height: 100%;
+
+    color: white;
+    background-color: grey;
+    display: grid;
+    place-items: center;
+  }
 }
