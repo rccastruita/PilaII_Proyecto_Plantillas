@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Stores.StoreList | Laura's{% endblock %}
+
+{% block content %}
+
+<main>
+    <section class="section-top u-margin-header">
+        <h1>Stores</h1>
+        
+        <div class="contact-grid">
+            {% for store in stores %}
+            <div class="contact-grid__item">
+                <h3 class="contact-card__heading heading-tertiary">
+                    {{ store.name }}
+                    <span class="contact-card__edit">
+                        <a href="{% url 'store_update' store.pk %}">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="{% url 'store_delete' store.pk %}">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </span>
+                </h3>
+                <p class="contact-grid__item__paragraph">
+                    {{ store.address }}<br>
+                    C.P. {{ store.zip_code }}
+                    
+                </p>
+                <a href="tel:{{ store.phone_number }}" class="contact-grid__item__button--left btn-text"><i class="fab fa-whatsapp"></i>  {{ sucursal.telefono }}</a>
+                
+                <a href="mailto:{{ store.email }}" class="contact-grid__item__button--right btn-text">{{ store.email }}</a>
+
+            </div>
+            {% endfor %}
+            <div class="contact-grid__item--centered contact-add">
+                <a href="{% url 'store_create' %}">
+                    <i class="fas fa-plus-circle"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock content %}

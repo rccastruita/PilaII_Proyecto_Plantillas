@@ -32,6 +32,8 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'shopping.apps.ShoppingConfig',
+    'users.apps.UsersConfig',
+    'stores.apps.StoresConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -134,3 +136,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'deploy', 'static')
 # Media files storage (Google Cloud)
 GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = os.path.join(BASE_DIR, 'credentials.json')
 GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = 'media'
+
+AUTH_USER_MODEL = 'users.User'

@@ -5,8 +5,8 @@
 {% block content %}
 
 <main>
-  <section class="section-top">
-    {% include 'section_title.html' with name='Registrar Sucursal' %}
+  <section class="section-top u-margin-header">
+    <h1>Registrar Sucursal</h1>
       <form action="" method="POST">{% csrf_token %}
         {{ form.as_ul }}
         <input type="submit" name="guardar" value="Guardar">
