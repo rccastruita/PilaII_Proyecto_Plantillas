@@ -4,6 +4,8 @@ main {
 }
 
 .section {
+  margin-top: var(--header-height);
+
   p {
     margin-bottom: 1rem;
   }

@@ -1,4 +1,5 @@
 <nav class="navbar navbar--bottom">
+  {# Links to important sites #}
   <a href="{% url 'product_list' %}" class="navbar__item">
     <svg class="navbar__icon"><use href="#cake-icon-sprite"></use></svg>
     <span class="navbar__text">Productos</span>
@@ -11,11 +12,34 @@
     <svg class="navbar__icon"><use href="#cart-icon-sprite"></use></svg>
   </a>
 
+  {# Hamburger button (for dropdown menu) #}
   <button class="navbar__item navbar__button" id="navbar-dropdown-button">
     <svg class="navbar__icon"><use href="#menu-icon-sprite"></use></svg>
   </button>
 
+  <!-- Dropdown menu -->
   <div class="dropdown">
+    {# User menu or Login options #}
+    {% if user.is_authenticated %}
+      <div class="dropdown__item user">
+        <div class="user__name">
+          {{ user.username }}
+        </div>
+        <a href="{% url 'user_update' %}">Profile</a>
+        <a href="{% url 'logout' %}" class="logout-link">Log out</a>
+      </div>
+    {% else %}
+      <div class="dropdown__item login-menu">
+        <a href="{% url 'login' %}" class="login-link">
+          Login
+        </a>
+        <a href="{% url 'signup' %}" class="signup-link">
+          Signup
+        </a>
+      </div>
+    {% endif %}
+    
+    {# Navigation links #}
     <a href="{% url 'home' %}" class="dropdown__item">
       Home
     </a>

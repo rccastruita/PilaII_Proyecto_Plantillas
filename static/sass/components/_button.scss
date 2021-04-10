@@ -16,8 +16,9 @@
   
   @include mixins.hover {
     filter: invert(100%);
+    cursor: pointer;
   }
-
+  
   &:active {
     filter: invert(100%);
   }

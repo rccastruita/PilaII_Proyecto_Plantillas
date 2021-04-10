@@ -188,12 +188,6 @@ h1, h2, h3, h4, h5, h6 {
   flex-basis: var(--navbar-height);
   height: var(--navbar-height);
 }
-.navbar__item:active {
-  background-color: white;
-}
-.navbar__item:active svg {
-  fill: black;
-}
 @media (hover: hover) {
   .navbar__item:hover {
     background-color: white;
@@ -201,6 +195,12 @@ h1, h2, h3, h4, h5, h6 {
   .navbar__item:hover svg {
     fill: black;
   }
+}
+.navbar__item:active {
+  background-color: white;
+}
+.navbar__item:active svg {
+  fill: black;
 }
 .navbar__button {
   background-color: #333;
@@ -242,6 +242,9 @@ main {
   overflow: hidden;
 }
 
+.section {
+  margin-top: var(--header-height);
+}
 .section p {
   margin-bottom: 1rem;
 }
@@ -328,6 +331,7 @@ form label {
 @media (hover: hover) {
   .btn:hover {
     filter: invert(100%);
+    cursor: pointer;
   }
 }
 .btn:active {

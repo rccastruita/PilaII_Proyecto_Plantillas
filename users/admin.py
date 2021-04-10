@@ -1,20 +1,22 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
-from . import models as MyModels
-
+from . import models as my_models
+from . import forms as my_forms
 
 # Register your models here.
 class UserAdmin(BaseUserAdmin):
-    model = MyModels.User
-
+    model = my_models.User
+    
+    # Fields to display on the list view
     list_display = (
         'username',
         'email',
         'city',
         'in_mailing_list',
     )
-    
+
+    # Fields to display on change form
     fieldsets = (
         (None, {
             'fields': (
@@ -48,4 +50,4 @@ class UserAdmin(BaseUserAdmin):
         })
     )
 
-admin.site.register(MyModels.User, UserAdmin)
+admin.site.register(my_models.User, UserAdmin)
