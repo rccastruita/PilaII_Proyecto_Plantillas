@@ -5,12 +5,14 @@
 {% block content %}
 
 <main>
-  <section class="section-top u-margin-header">
-    <h1>Registrar Sucursal</h1>
-      <form action="" method="POST">{% csrf_token %}
-        {{ form.as_ul }}
-        <input type="submit" name="guardar" value="Guardar">
+  <section class="section section-top">
+    <section class="section-form">
+      <form class="form" action="" method="POST">{% csrf_token %}
+        <h1 class="form__title">Registrar Sucursal</h1>
+        {{ form.as_p }}
+        <button class="btn btn--black form__submit">Guardar</button>
       </form>
+    </section>
   </section>
 </main>
 {% endblock content %}

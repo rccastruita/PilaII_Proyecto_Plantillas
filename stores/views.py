@@ -22,5 +22,5 @@ class StoreUpdateView(UpdateView):
 class StoreDeleteView(DeleteView):
     model = my_models.Store
     template_name_suffix = '_delete'
-    #context_object_name = 'sucursal'
+    context_object_name = 'store'
     success_url = reverse_lazy('store_list')

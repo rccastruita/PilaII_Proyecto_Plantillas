@@ -5,13 +5,15 @@
 {% block content %}
 
 <main>
-  <section class="section-top">
-    {% include 'section_title.html' with name='Registrar Sucursal' %}
+  <section class="section section-top">
+    <section class="section-form">
       <form action="" method="POST">{% csrf_token %}
-        {{ form.as_ul }}
-        <p class="form-label">¿Eliminar sucursal <strong>{{ sucursal.nombre }}</strong>?</p>
-        <input type="submit" name="guardar" value="Confirmar">
+        <h1 class="form__title">Registrar Sucursal</h1>
+        {{ form.as_p }}
+        <p>¿Eliminar sucursal <strong>{{ store.name }}</strong>?</p>
+        <button class="btn btn--black form__submit">Confirmar</button>
       </form>
+    </section>
   </section>
 </main>
 {% endblock content %}
