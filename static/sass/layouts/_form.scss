@@ -1,0 +1,45 @@
+.section-form {
+  //width: max-content;
+  width: clamp(300px, 100%, 550px);
+  margin: 0 auto;
+}
+
+.form {
+  &__title {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  p,
+  &__field {
+    margin-bottom: 1.5rem;
+    
+    label {
+      //display: block;
+      font-size: 1rem;
+    }
+
+    input[type=text],
+    input[type=password],
+    input[type=email] {
+      display: block;
+      padding: 0.3rem;
+      width: 100%;
+    }
+
+    .helptext {
+      font-size: 0.7rem;
+    }
+  }
+
+  &__submit {
+    width: 100%;
+  }
+}
+
+.password-reset {
+  margin-top: 2rem;
+}

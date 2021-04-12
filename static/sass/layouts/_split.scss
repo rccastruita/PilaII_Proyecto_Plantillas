@@ -1,28 +1,23 @@
 .split {
   position: relative;
   width: min(100%, 900px);
-  border: 10px solid blue;
-  background-color: silver;
   
   display: flex;
   flex-flow: row wrap;
 
   &__column {
-    background-color: white;
     flex-grow: 1;
     
     &--left {
       flex-shrink: 1;
       order: 1;
       flex-basis: 300px;
-      background-color: cadetblue;
 
     }
 
     &--right {
       order: 2;
       flex-basis: 300px;
-      background-color:darkolivegreen;
 
       display: flex;
       justify-content: center;

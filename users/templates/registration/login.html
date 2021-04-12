@@ -4,16 +4,19 @@
 {% block content %}
 
 <main>
-<section class="section">
-  <form method="POST" class="section-title">{% csrf_token %}
-    {{ form.as_p }}
-    <div class="form__input">
-      <p class="form__message">
-        ¿Olvidaste tu contraseña? <a href="{% url 'password_reset' %}">Restablecer contraseña</a>
-      </p>
-    </div>
-    <button class="btn btn--black" type="submit">Confirmar</button>
-  </form>
+<section class="section section-top">
+  <section class="section-form">
+    <h1 class="form__title">Login</h1>
+    <form method="POST" class="form">{% csrf_token %}
+      {{ form.as_p }}
+      <div class="form__field password-reset">
+        <p class="form__message">
+          ¿Olvidaste tu contraseña? <a href="{% url 'password_reset' %}">Restablecer contraseña</a>
+        </p>
+      </div>
+      <button class="btn btn--black form__submit" type="submit">Confirmar</button>
+    </form>
+  </section>
 </section>
 </main>
 

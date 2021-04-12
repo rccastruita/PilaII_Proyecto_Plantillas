@@ -5,15 +5,19 @@
 {% block content %}
 
 <main>
-  <h1 class="u-margin-header">Editar perfil de usuario</h1>
-  <form class="form" action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <div class="form__input">
-      <span class="form__label">Contraseña</span>
-      <p class="form__message">Para cambiar la contraseña, haz clic <a href="{% url 'password_change' %}">aquí.</a></p>
-    </div>
-    <button type="submit" class="btn btn--black">Confirmar cambios</button>
-  </form>
+  <section class="section section-top">
+    <section class="section-form">
+      <h1 class="form__title">Editar perfil de usuario</h1>
+      <form class="form" action="" method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <div class="form__input">
+          <span class="form__label">Contraseña</span>
+          <p class="form__message">Para cambiar la contraseña, haz clic <a href="{% url 'password_change' %}">aquí.</a></p>
+        </div>
+        <button type="submit" class="btn btn--black form__submit">Confirmar cambios</button>
+      </form>
+    </section>
+  </section>
 </main>
 
 {% endblock content %}

@@ -50,7 +50,11 @@
     padding: 1rem;
 
     a {
-      color: var(--color-primary-400);
+      color: var(--color-neutral-900);
+
+      @include mixins.hover {
+        font-weight: bolder;
+      }
     }
   }
 
@@ -59,7 +63,7 @@
     font-size: 1.3rem;
     font-weight: bold;
 
-    color: var(--color-primary-400);
+    color: var(--color-neutral-900);
     margin-bottom: 0.6rem;
     
     width: max-content;

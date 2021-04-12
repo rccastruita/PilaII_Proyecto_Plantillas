@@ -6,12 +6,27 @@
 
   --product-card-height: 16em;
 
+  --color-offset: 0;
 
-  --color-primary-400: hsl(0, 0%, 0%);;
+  --color-primary-h: calc(var(--color-offset) + 30);
+  --color-primary-s: 50%;
+  --color-primary-l: 85%;
+  --color-primary-400: hsl(
+    var(--color-primary-h), 
+    var(--color-primary-s), 
+    var(--color-primary-l));
   
-  --color-secondary-400: hsl(0, 0%, 100%);
+  --color-secondary-h : calc(var(--color-offset) + 20);
+  --color-secondary-s: 100%;
+  --color-secondary-l: 30%;
+  --color-secondary-400: hsl(
+    var(--color-secondary-h), 
+    var(--color-secondary-s), 
+    var(--color-secondary-l)
+  );
 
   --color-neutral-000: hsl(0, 0%, 100%);
+  --color-neutral-200: hsl(0, 0%, 75%);
   --color-neutral-400: hsl(0, 0%, 53%);
   --color-neutral-700: hsl(0, 0%, 20%);
   --color-neutral-900: hsl(0, 0%, 0%);
