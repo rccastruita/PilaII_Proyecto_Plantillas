@@ -281,7 +281,7 @@ main {
 }
 
 .section-top {
-  margin-top: var(--header-height);
+  margin-top: calc(var(--header-height) + 1rem);
 }
 
 .section-products-list {
@@ -377,19 +377,41 @@ main {
 }
 
 .split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  position: relative;
   width: min(100%, 900px);
+  border: 10px solid blue;
   background-color: silver;
+  display: flex;
+  flex-flow: row wrap;
 }
 .split__column {
-  justify-self: center;
+  background-color: white;
+  flex-grow: 1;
 }
 .split__column--left {
-  grid-column: 1/span 1;
+  flex-shrink: 1;
+  order: 1;
+  flex-basis: 300px;
+  background-color: cadetblue;
 }
 .split__column--right {
-  grid-column: 2/span 1;
+  order: 2;
+  flex-basis: 300px;
+  background-color: darkolivegreen;
+  display: flex;
+  justify-content: center;
+}
+.split__image {
+  width: clamp(230px, 90%, 450px);
+  object-fit: cover;
+}
+.split__title {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.split__subtitle {
+  margin-bottom: 0.5rem;
 }
 
 .contact-card__heading {

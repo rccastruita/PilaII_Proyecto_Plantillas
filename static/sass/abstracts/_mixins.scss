@@ -1,3 +1,5 @@
+@use 'breakpoints' as brk;
+
 @mixin absolute-centered {
   position: absolute;
   left: 0;
@@ -10,4 +12,26 @@
       @content;
     }
   }
+}
+
+@mixin respond-to($breakpoint) {
+  $raw-query: map.get(brk.$breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+
+    @media #{$query} {
+      @content;
+    }
+  }
+
+  @else {
+    @error 'No se ha encontrado un valor para `#{$breakpoint}`. '
+         + 'Por favor, asegúrate que está definido en el mapa `$breakpoints`.';
+  }
+
 }

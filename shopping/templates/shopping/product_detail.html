@@ -5,18 +5,24 @@
 {% block content %}
 
 <main>
-  <section class="section-top">
-    <h1 class="section-title">
-      {{ product.name }}
-    </h1>
-    <article class="split">
-      <div class="split__column--right">
-        <img class="split__image" src="{{ product.image.url }}" alt="">
+  <section class="section section-top split">
+    <div class="split__column split__column--right">
+      <img class="split__image" src="{{ product.image.url }}" alt="">
+    </div>
+    <div class="split__column split__column--left">
+      <h1 class="split__title">
+        {{ product.name }}
+      </h1>
+      <p class="split__paragraph">{{ product.description }}</p>
+      <h2 class="split__subtitle">
+        Presentaciones
+      </h2>
+      <div class="product-presentations">
+        {% for presentation in product.presentations.all %}
+          <p><strong>{{ presentation.name }}</strong> - ${{ presentation.price }}</p>
+        {% endfor %}
       </div>
-      <div class="split__column--left">
-        <p class="split__paragraph split__column--left">{{ product.description }}</p>
-      </div>
-    </article>
+    </div>
   </section>
 </main>
 

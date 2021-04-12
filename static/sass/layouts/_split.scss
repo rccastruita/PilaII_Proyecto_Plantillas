@@ -1,0 +1,46 @@
+.split {
+  position: relative;
+  width: min(100%, 900px);
+  border: 10px solid blue;
+  background-color: silver;
+  
+  display: flex;
+  flex-flow: row wrap;
+
+  &__column {
+    background-color: white;
+    flex-grow: 1;
+    
+    &--left {
+      flex-shrink: 1;
+      order: 1;
+      flex-basis: 300px;
+      background-color: cadetblue;
+
+    }
+
+    &--right {
+      order: 2;
+      flex-basis: 300px;
+      background-color:darkolivegreen;
+
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__image {
+    width: clamp(230px, 90%, 450px);
+    object-fit: cover;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    margin-bottom: 0.5rem;
+  }
+}
