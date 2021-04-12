@@ -1,7 +1,8 @@
 .header {
   height: var(--header-height);
-  background-color: black;
+  background-color: var(--color-neutral-900);
   z-index: 20;
+  font-size: 1.1rem;
 
   position: fixed;
   top: 0;
@@ -12,9 +13,8 @@
 
   &__home-link {
     height: 100%;
-
-    color: white;
-    background-color: grey;
+    color: var(--color-neutral-000);
+    background-color: var(--color-neutral-900);
     display: grid;
     place-items: center;
   }

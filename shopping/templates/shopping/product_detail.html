@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }} - Laura's{% endblock %}
+
+{% block content %}
+
+<main>
+  <section class="section-top">
+    <h1 class="section-title">
+      {{ product.name }}
+    </h1>
+    <article class="split">
+      <div class="split__column--right">
+        <img class="split__image" src="{{ product.image.url }}" alt="">
+      </div>
+      <div class="split__column--left">
+        <p class="split__paragraph split__column--left">{{ product.description }}</p>
+      </div>
+    </article>
+  </section>
+</main>
+
+{% endblock %}

@@ -1,11 +1,9 @@
-@use '../abstracts/colors';
-
 .contact-card {
 
     &__heading {
         grid-area: a;
-        color: colors.$primary-light;
-        border-bottom: colors.$primary-light solid 1px;
+        color: var(--color-primary-400);
+        border-bottom: var(--color-primary-400) solid 1px;
         width: 100%;
         position: relative;
         
@@ -19,7 +17,7 @@
         padding-left: 15rem;
 
         a {
-            color: colors.$primary-light;
+            color: var(--color-primary-400);
             text-decoration: none;
         }
 
@@ -35,10 +33,10 @@
     font-size: 4rem;
     display: block;
     margin: auto;
-    color: colors.$primary-light;
+    color: var(--color-primary-400);
 
     a {
-        color: colors.$primary-light;
+        color: var(--color-primary-400);
     }
 }
 

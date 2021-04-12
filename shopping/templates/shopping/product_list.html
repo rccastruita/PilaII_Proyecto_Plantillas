@@ -1,0 +1,25 @@
+{% comment %}
+
+product_list.html
+Plantilla para ProductListView
+Muestra una lista de los productos guardados en la BD,
+con enlaces a sus DetailView respectivos.
+
+{% endcomment %}
+
+{% extends 'base.html' %}
+
+{% block title %}Productos | Laura's{% endblock %}
+
+{% block content %}
+<main>
+  <section class="section section-products-list">
+    <h1 class="section__title">Productos</h1>
+    <div class="grid products-grid">
+      {% for product in products %}
+        {% include 'shopping/product_card.html' with product=product %}
+      {% endfor %}
+    </div>
+  </section>
+</main>
+{% endblock %}

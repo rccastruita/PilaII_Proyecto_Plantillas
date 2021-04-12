@@ -1,10 +1,10 @@
 .u-outline{
   outline-width: 2px;
   outline-style: dashed;
-  outline-color: black;
+  outline-color: var(--color-neutral-900);
 
   &--white {
-    outline-color: white;
+    outline-color: var(--color-neutral-000);
   }
 }
 

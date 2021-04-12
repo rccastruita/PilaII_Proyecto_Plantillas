@@ -2,5 +2,21 @@
   --navbar-height: 4rem;
   --navbar-icon-size: calc(var(--navbar-height) * 5 / 8);
 
-  --header-height: 2rem;
+  --header-height: 3.5rem;
+
+  --product-card-height: 16em;
+
+
+  --color-primary-400: hsl(0, 0%, 0%);;
+  
+  --color-secondary-400: hsl(0, 0%, 100%);
+
+  --color-neutral-000: hsl(0, 0%, 100%);
+  --color-neutral-400: hsl(0, 0%, 53%);
+  --color-neutral-700: hsl(0, 0%, 20%);
+  --color-neutral-900: hsl(0, 0%, 0%);
+
+  --hero-background-color-1: hsla(0, 0%, 0%, 0.6);
+  --hero-background-color-2: hsla(0, 0%, 0%, 1);
+  
 }

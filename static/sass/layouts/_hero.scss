@@ -1,8 +1,7 @@
-@use '../abstracts/colors';
 @use '../abstracts/mixins';
 
 .hero {
-  color: white;
+  color: var(--color-neutral-000);
   position: relative;
   font-size: 1rem;
 
@@ -15,7 +14,7 @@
     margin: 0 auto;
 
     background-image:
-      linear-gradient(to bottom right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)),
+      linear-gradient(to bottom right, var(--hero-background-color-1), var(--hero-background-color-2)),
       url(../img/hero_background.jpg);
     background-size: cover;
     background-position: center;
@@ -66,7 +65,6 @@
   &__cta {
     @include mixins.absolute-centered;
 
-    //bottom: clamp(var(--navbar-icon-size) + var(--navbar-padding) + 2em, 25%, 30em);
     bottom: min(var(--navbar-height) + 20%);
     text-align: center;
   }

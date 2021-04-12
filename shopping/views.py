@@ -13,13 +13,13 @@ class AboutPageView(TemplateView):
 
 class ProductListView(ListView):
     model = MyModels.Product
-    template_name = 'products.html'
-    context_object_name = 'productos'
+    template_name = 'shopping/product_list.html'
+    context_object_name = 'products'
 
 class ProductDetailView(DetailView):
     model = MyModels.Product
-    template_name = 'product_detail.html'
-    context_object_name = 'producto'
+    template_name = 'shopping/product_detail.html'
+    context_object_name = 'product'
 
 class SoonPageView(TemplateView):
     template_name = 'soon.html'

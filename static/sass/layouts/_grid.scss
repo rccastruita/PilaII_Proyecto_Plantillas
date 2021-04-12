@@ -1,8 +1,31 @@
 .grid {
   display: grid;
 
-  grid-template-rows: max-content;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 1rem;
+}
 
+.products-grid {
+  grid-template-rows: var(--product-card-height);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: min(100%, 900px);
+
+  background-color: silver;
+
+  &__column {
+    justify-self: center;
+
+    &--left {
+      grid-column: 1 / span 1;
+    }
+
+    &--right {
+      grid-column: 2 / span 1;
+    }
+
+  }
 }

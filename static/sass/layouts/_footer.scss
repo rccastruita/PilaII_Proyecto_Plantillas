@@ -1,4 +1,95 @@
+@use '../abstracts/mixins';
+
 .footer {
-  background-color: grey;
-  margin-bottom: var(--navbar-height);
+  background-color: var(--color-neutral-400);
+  //margin-bottom: var(--navbar-height);
+  margin: 1rem 0 var(--navbar-height);
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  
+  &__column {
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem 2rem 0;
+    
+    &--1 {
+      flex-basis: max-content;
+      flex-grow: 2;
+      flex-shrink: 1;
+      align-items: center;
+    }
+
+    &--2 {
+      flex-basis: 12rem;
+      flex-grow: 1;
+      flex-shrink: 2;
+    }
+
+    &--3 {
+      flex-basis: 16rem;
+      flex-grow: 2;
+      flex-shrink: 1;
+    }
+
+    .logo-container {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--color-neutral-900);
+    }
+  }
+
+  &__bottom {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+
+    a {
+      color: var(--color-primary-400);
+    }
+  }
+
+  &__link {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    color: var(--color-primary-400);
+    margin-bottom: 0.6rem;
+    
+    width: max-content;
+    
+    &--main {
+      width: 100%;
+      border-bottom: 2px solid var(--color-neutral-900);
+    }
+
+    &--sub {
+      font-size: 1rem;
+    }
+    
+    @include mixins.hover {
+      font-weight: 800;
+    }
+  }
+}
+
+.social-links {
+  width: auto;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  margin-bottom: 1rem;
+
+  a {
+    font-size: 2rem;
+    color: var(--color-neutral-900);
+  }
 }
