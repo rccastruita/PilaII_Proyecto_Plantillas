@@ -2,12 +2,14 @@
 {% block title %}Registrar{% endblock title %}
 {% block content %}
 <main>
-  <section class="section">
-    <h1 class="section-title">Registrar</h1>
-    <form class="form" action="" method="POST">{% csrf_token %}
+  <section class="section section-top">
+    <section class="section-form">
+      <form class="form" action="" method="POST">{% csrf_token %}
+        <h1 class="form__title">Registrar</h1>
         {{ form.as_p }}
-        <button class="btn btn--black" type="submit">Confirmar</button>
-    </form>
+        <button class="btn btn--black form__submit" type="submit">Confirmar</button>
+      </form>
+    </section>
   </section>
 </main>
 {% endblock content %}

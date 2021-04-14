@@ -142,9 +142,5 @@ AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-# Google SMTP service
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'alu.16130789@correo.itlalaguna.edu.mx'
-EMAIL_HOST_PASSWORD = "0+-*123]_\cde'()"
-EMAIL_USE_TLS = True
+# Email backend for password reset
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
