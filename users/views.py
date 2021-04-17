@@ -6,7 +6,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import User
 from . import forms as my_forms
 
-# Create your views here.
 class UserCreateView(UserPassesTestMixin, CreateView):
     """User creation view
     UserPassesTestMixin checks the condition returned by test_func()
@@ -22,7 +21,7 @@ class UserCreateView(UserPassesTestMixin, CreateView):
     permission_denied_message = 'Necesitas cerrar la sesión actual para crear una nueva cuenta.'
     # Function to check if there is a current user authenticated
     def test_func(self):
-        return not self.request.user.is_authenticated
+        return self.request.user.is_anonymous
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
     """View for updating the current user info
