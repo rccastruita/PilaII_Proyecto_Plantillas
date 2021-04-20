@@ -38,6 +38,7 @@ a:not([class]) {
 }
 
 :root {
+  --section-max-width: 900px;
   --navbar-height: 4rem;
   --navbar-icon-size: calc(var(--navbar-height) * 5 / 8);
   --header-height: 3.5rem;
@@ -436,9 +437,12 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 
-.split {
+.section-split {
   position: relative;
-  width: min(100%, 900px);
+  width: min(100%, var(--section-max-width));
+}
+
+.split {
   display: flex;
   flex-flow: row wrap;
 }
@@ -608,6 +612,68 @@ main {
   box-decoration-break: clone;
   line-height: 2.8rem;
   border-radius: 0 0 0 10px;
+}
+
+.section-comments {
+  background-color: var(--color-neutral-200);
+  margin: 3rem auto;
+  width: min(100vw, var(--section-max-width));
+}
+
+.comment {
+  box-sizing: border-box;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  display: grid;
+  justify-content: center;
+}
+.comment__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.comment__edit {
+  position: absolute;
+  right: -2rem;
+  top: 1rem;
+}
+.comment__edit a {
+  color: black;
+}
+.comment__edit a:hover {
+  color: var(--color-neutral-700);
+}
+.comment__user {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.comment__timestamp {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  padding-left: auto;
+  padding-right: 1rem;
+  right: 5rem;
+}
+.comment p {
+  max-width: unset;
+  width: min(70ch, 90vw);
+}
+
+.comment-form {
+  width: min(70ch, 90vw);
+  margin: 1rem auto;
+}
+.comment-form label {
+  display: block;
+  font-family: "Roboto";
+  font-size: 2rem !important;
+  font-weight: 900;
+}
+.comment-form textarea {
+  width: 100%;
+  resize: none;
 }
 
 /*# sourceMappingURL=style.css.map */

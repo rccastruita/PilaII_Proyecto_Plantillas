@@ -144,7 +144,17 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 # Email backend for password reset
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+from decouple import config
+
+EMAIL_HOST = 'smtp.googlemail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = config('SMTP_USER')
+EMAIL_HOST_PASSWORD = config('SMTP_PASSWORD')
 
 # AUTH
 LOGIN_URL = '/users/login/'
+
+TIME_ZONE = 'America/Monterrey'

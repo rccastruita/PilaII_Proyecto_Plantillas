@@ -5,39 +5,55 @@
 {% block content %}
 
 <main>
-  <section class="section section-top split">
-    {% if product.image %}
-    <div class="split__column split__column--right">
-      <img class="split__image" src="{{ product.image.url }}" alt="">
-    </div>
-    {% endif %}
-    <div class="split__column split__column--left">
-      <h1 class="split__title">
-        {{ product.name }}
-      </h1>
-      <p class="split__paragraph">{{ product.description }}</p>
-      <h2 class="split__subtitle">
-        Presentaciones
-      </h2>
-      <div class="product-presentations">
-        {% for presentation in product.presentations.all %}
-          <p><strong>{{ presentation.name }}</strong> - ${{ presentation.price }}</p>
-        {% endfor %}
+  <section class="section section-top section-split">
+    <h1 class="split__title">
+      {{ product.name }}
+    </h1>
+    <div class="split">
+      <div class="split__column split__column--left">
+        <p class="split__paragraph">{{ product.description }}</p>
+        <h2 class="split__subtitle">
+          Presentaciones
+        </h2>
+        <div class="product-presentations">
+          {% for presentation in product.presentations.all %}
+            <p><strong>{{ presentation.name }}</strong> - ${{ presentation.price }}</p>
+          {% endfor %}
+        </div>
       </div>
+      {% if product.image %}
+      <div class="split__column split__column--right">
+        <img class="split__image" src="{{ product.image.url }}" alt="">
+      </div>
+      {% endif %}
     </div>
   </section>
-  <section class="section">
+  <section class="section section-comments">
     <h1 class="section__title">Comentarios</h1>
     {% for comment in product.comments.all %}
-      <div class="comment-container">
-        <h2 class="comment comment__user">
-          {{ comment.user.username }}
-          <span class="comment__timestamp">{{ comment.timestamp|date:'SHORT_DATE_FORMAT' }}</span>
-        </h2>
-        <p class="comment__body">{{ comment.body }}</p>
+      <div class="comment">
+        <div class="comment__heading">
+          <h2 class="comment__user">
+            {{ comment.user.username }}
+          </h2>
+          <span class="comment__timestamp">{{ comment.timestamp|date:'SHORT_DATETIME_FORMAT' }}</span>
+          {% if user == comment.user %}
+            <span class="comment__edit">
+              <a href="{% url 'comment_update' product_pk=product.pk comment_pk=comment.pk %}">
+                <i class="fas fa-edit"></i>
+              </a>
+              <a href="{% url 'comment_delete' product_pk=product.pk comment_pk=comment.pk %}">
+                <i class="fas fa-trash"></i>
+              </a>
+            </span>
+          {% endif %}
+        </div>
+        <div class="comment__body">
+          <p class="comment__paragraph">{{ comment.body }}</p>
+        </div>
       </div>
     {% endfor %}
-    <form class="form comment_form" action="{% url 'comment_create' product.pk %}" method='POST'>
+    <form class="form comment-form" action="{% url 'comment_create' product.pk %}" method='POST'>
       {% csrf_token %}
       {{ comment_form.as_p }}
       <button class="btn btn--black form__submit">Enviar</button>

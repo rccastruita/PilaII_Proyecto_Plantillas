@@ -1,7 +1,9 @@
-.split {
+.section-split {
   position: relative;
-  width: min(100%, 900px);
-  
+  width: min(100%, var(--section-max-width));
+}
+
+.split {
   display: flex;
   flex-flow: row wrap;
 

@@ -1,0 +1,78 @@
+.section-comments {
+  background-color: var(--color-neutral-200);
+  margin: 3rem auto;
+  width: min(100vw, var(--section-max-width));
+}
+
+.comment {
+  box-sizing: border-box;
+
+  //background-color: var(--color-neutral-200);
+  margin-top: 1rem;
+  margin-right: 1rem;
+  
+  display: grid;
+  justify-content: center;
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    margin-bottom: 0.5rem;
+
+    position: relative;
+  }
+
+  &__edit {
+    position: absolute;
+    right: -2rem;
+    top: 1rem;
+    
+    a {
+      color: black;
+
+      &:hover {
+        color: var(--color-neutral-700);
+      }
+    }
+  }
+
+  &__user {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  &__timestamp {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    padding-left: auto;
+    padding-right: 1rem;
+    right: 5rem;
+  }
+
+  &__body {
+    
+  }
+
+  p {
+    max-width: unset;
+    width: min(70ch, 90vw);
+  }
+}
+
+.comment-form {
+  width: min(70ch, 90vw);
+  margin: 1rem auto;
+
+  label {
+    display: block;
+    font-family: "Roboto";
+    font-size: 2rem !important;
+    font-weight: 900;
+  }
+
+  textarea {
+    width: 100%;
+    resize: none;
+  }
+}

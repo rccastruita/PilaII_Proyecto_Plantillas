@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Eliminar comentario - Laura's{% endblock title %}
+{% block title %}Editar comentario - Laura's{% endblock title %}
 
 {% block content %}
 
@@ -8,9 +8,9 @@
   <section class="section section-top">
     <section class="section-form">
       <form class="form comment-form" action="" method="POST">{% csrf_token %}
-        <h1 class="form__title">Confirmar</h1>
-        <p>¿Eliminar comentario? Esto no se podrá revertir.</p>
-        <button type="submit" class="btn btn--black form__submit">Eliminar</button>
+        <h1 class="form__title">Editar comentario</h1>
+        {{ form.as_p }}
+        <button type="submit" class="btn btn--black form__submit">Confirmar cambios</button>
       </form>
     </section>
   </section>
