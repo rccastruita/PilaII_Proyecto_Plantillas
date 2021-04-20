@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views as MyViews
 
 # Imports for serving media images on debug mode
@@ -10,7 +10,8 @@ urlpatterns = [
     path('', MyViews.HomePageView.as_view(), name='home'),
     path('about', MyViews.AboutPageView.as_view(), name='about'),
     path('products', MyViews.ProductListView.as_view(), name='product_list'),
-    path('products/<int:pk>/', MyViews.ProductDetailView.as_view(), name='product_detail'),
+    path('products/<int:product_pk>/comments/', include('comments.urls')),
+    path('products/<int:product_pk>/', MyViews.ProductDetailView.as_view(), name='product_detail'),
     path('soon', MyViews.SoonPageView.as_view(), name='soon'),
 ]
 

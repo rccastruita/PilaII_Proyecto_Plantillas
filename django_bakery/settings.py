@@ -31,9 +31,10 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'shopping.apps.ShoppingConfig',
-    'users.apps.UsersConfig',
-    'stores.apps.StoresConfig',
+    'stores',
+    'users',
+    'shopping',
+    'comments',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -144,3 +145,6 @@ LOGOUT_REDIRECT_URL = 'home'
 
 # Email backend for password reset
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# AUTH
+LOGIN_URL = '/users/login/'
