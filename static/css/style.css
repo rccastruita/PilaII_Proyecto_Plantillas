@@ -384,7 +384,9 @@ main {
   flex-basis: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 1rem;
+  flex-flow: column wrap;
 }
 .footer__bottom a {
   color: var(--color-neutral-900);
@@ -425,6 +427,10 @@ main {
 .social-links a {
   font-size: 2rem;
   color: var(--color-neutral-900);
+}
+
+.icon-attribution {
+  display: block;
 }
 
 .grid {

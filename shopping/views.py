@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic.base import ContextMixin
 
 from . import models as MyModels
-from comments.forms import CommentForm
+from comments.forms import CommentModelForm
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
@@ -24,7 +24,7 @@ class ProductDetailView(DetailView, ContextMixin):
     context_object_name = 'product'
     pk_url_kwarg = 'product_pk'
 
-    extra_context = {'comment_form': CommentForm()}
+    extra_context = {'comment_form': CommentModelForm()}
 
 class SoonPageView(TemplateView):
     template_name = 'soon.html'

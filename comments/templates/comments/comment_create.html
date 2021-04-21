@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Agregar comentario - Laura's{% endblock title %}
+
+{% block content %}
+
+<main>
+  <section class="section section-top">
+    <section class="section-form">
+      <form class="form comment-form" action="" method="POST">{% csrf_token %}
+        <h1 class="form__title">Agregar comentario</h1>
+        <h2>Producto: {{ product_pk }}</h2>
+        {{ form.as_p }}
+        <button type="submit" class="btn btn--black form__submit">Enviar</button>
+      </form>
+    </section>
+  </section>
+</main>
+
+{% endblock content %}

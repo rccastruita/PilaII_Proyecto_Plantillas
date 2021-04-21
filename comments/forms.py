@@ -2,17 +2,17 @@ from django import forms
 
 from .models import Comment
 
-class CommentForm(forms.Form):
-    body = forms.CharField(
-        label='Deja un comentario', 
-        required=True, strip=True,
-        widget=forms.Textarea(attrs={'cols': 200}),
-    )
-
+# Form for posting and editing comments
 class CommentModelForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['body']
+        fields = ['body', 'rating']
         labels = {
-            'body': 'Editar'
+            'body': 'Comentario',
+            'rating': 'Calificación',
         }
+        widgets = {
+            #'rating': forms.RadioSelect(attrs={'class': 'comment__stars-field'}),
+            'rating': forms.HiddenInput,
+        }
+        

@@ -47,7 +47,9 @@
     flex-basis: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 1rem;
+    flex-flow: column wrap;
 
     a {
       color: var(--color-neutral-900);
@@ -96,4 +98,8 @@
     font-size: 2rem;
     color: var(--color-neutral-900);
   }
+}
+
+.icon-attribution {
+  display: block;
 }
