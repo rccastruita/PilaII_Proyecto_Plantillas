@@ -55,6 +55,30 @@
     {% endfor %}
     <form class="form comment-form" action="{% url 'comment_create' product.pk %}" method='POST'>
       {% csrf_token %}
+      {% comment %}
+      Not implemented yet
+
+      <div class="star-input-container">
+        <span class="star-input__label">Calificación:</span>
+        <div class="star-input">
+          <span class="star star--checked" id="star-input-1">
+            <svg class="star__icon"><use href="#star-icon-sprite"></use></svg>
+          </span>
+          <span class="star star--checked" id="star-input-2">
+            <svg class="star__icon"><use href="#star-icon-sprite"></use></svg>
+          </span>
+          <span class="star star--checked" id="star-input-3">
+            <svg class="star__icon"><use href="#star-icon-sprite"></use></svg>
+          </span>
+          <span class="star" id="star-input-4">
+            <svg class="star__icon"><use href="#star-icon-sprite"></use></svg>
+          </span>
+          <span class="star" id="star-input-5">
+            <svg class="star__icon"><use href="#star-icon-sprite"></use></svg>
+          </span>
+        </div>
+      </div>
+      {% endcomment %}
       {{ comment_form.as_p }}
       <button class="btn btn--black form__submit">Enviar</button>
     </form>

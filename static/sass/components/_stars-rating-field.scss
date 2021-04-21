@@ -1,0 +1,48 @@
+.star-input {
+  display: flex;
+  flex-flow: row wrap;
+
+  &__label {
+    font-family: "Roboto";
+    font-weight: 900;
+    font-size: 1.5rem;
+  }
+
+  &:hover .star__icon {
+    fill: hsl(45, 100%, 62%);
+  }
+
+  .star:hover .star__icon {
+    fill: hsl(45, 100%, 62%);
+  }
+
+  .star:hover ~ .star{
+    .star__icon {
+      fill: hsl(45, 100%, 80%);
+
+    }
+  }
+}
+
+.star {
+  display: inline-block;
+  cursor: pointer;
+
+  margin-right: 0.5rem;
+
+  &__icon {
+    width:  2rem;
+    height: 2rem;
+    
+    fill: none;
+
+    &__checked {
+      fill: hsl(45, 100%, 51%);
+    }
+  }
+
+  &--checked &__icon {
+    fill: hsl(45, 100%, 51%);
+  }
+
+}

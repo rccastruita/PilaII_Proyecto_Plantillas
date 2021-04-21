@@ -498,12 +498,16 @@ main {
 }
 .form p input[type=text],
 .form p input[type=password],
-.form p input[type=email], .form__field input[type=text],
+.form p input[type=email],
+.form p textarea, .form__field input[type=text],
 .form__field input[type=password],
-.form__field input[type=email] {
+.form__field input[type=email],
+.form__field textarea {
   display: block;
   padding: 0.3rem;
   width: 100%;
+  font-family: "Roboto";
+  color: var(--color-neutral-700);
 }
 .form p .helptext, .form__field .helptext {
   font-size: 0.7rem;
@@ -680,6 +684,42 @@ main {
 .comment-form textarea {
   width: 100%;
   resize: none;
+}
+
+.star-input {
+  display: flex;
+  flex-flow: row wrap;
+}
+.star-input__label {
+  font-family: "Roboto";
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+.star-input:hover .star__icon {
+  fill: #ffcf3d;
+}
+.star-input .star:hover .star__icon {
+  fill: #ffcf3d;
+}
+.star-input .star:hover ~ .star .star__icon {
+  fill: #ffe699;
+}
+
+.star {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+.star__icon {
+  width: 2rem;
+  height: 2rem;
+  fill: none;
+}
+.star__icon__checked {
+  fill: #ffc105;
+}
+.star--checked .star__icon {
+  fill: #ffc105;
 }
 
 /*# sourceMappingURL=style.css.map */
