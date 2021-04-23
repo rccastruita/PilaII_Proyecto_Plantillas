@@ -23,6 +23,11 @@
     position: relative;
   }
 
+  &--clickable:hover {
+    background-color: white;
+    cursor: pointer;
+  }
+
   &__edit {
     position: absolute;
     right: -2rem;

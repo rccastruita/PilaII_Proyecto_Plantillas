@@ -644,6 +644,10 @@ main {
   margin-bottom: 0.5rem;
   position: relative;
 }
+.comment--clickable:hover {
+  background-color: white;
+  cursor: pointer;
+}
 .comment__edit {
   position: absolute;
   right: -2rem;

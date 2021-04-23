@@ -31,7 +31,7 @@
   <section class="section section-comments">
     <h1 class="section__title">Comentarios</h1>
     {% for comment in product.comments.all %}
-      <div class="comment">
+      <div class="comment{% if user == comment.user %} comment--clickable{% endif %}">
         <div class="comment__heading">
           <h2 class="comment__user">
             {{ comment.user.username }}

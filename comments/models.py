@@ -28,6 +28,9 @@ class Comment(models.Model):
         ]
     )
 
+    def __str__(self):
+        return f"{self.pk}->{self.user.username}: {self.body[:15]}"
+
     # For use in detail view
     def get_absolute_url(self):
         return reverse('comment_detail', kwargs={
