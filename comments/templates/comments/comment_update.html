@@ -11,6 +11,7 @@
         <h1 class="form__title">Editar comentario</h1>
         {{ form.as_p }}
         <button type="submit" class="btn btn--black form__submit">Confirmar cambios</button>
+        <a class="btn btn--black" href="{% url 'product_detail' object.product.pk %}">Regresar</a>
       </form>
     </section>
   </section>

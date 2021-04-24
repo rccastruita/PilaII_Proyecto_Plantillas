@@ -12,7 +12,10 @@
     {% if exception %}
     <p>{{ exception }}</p>
     {% endif %}
-    <a href="{% url 'home' %}" class="btn btn--black">Volver a la página de inicio.</a>
+    <a href="{% url 'home' %}" class="btn btn--black">Página de inicio.</a>
+    {% if request.META.HTTP_REFERER %}
+    <a class="btn btn--black" href="{{ request.META.HTTP_REFERER }}">Página anterior</a>
+    {% endif %}
   </section>
 </main>
 

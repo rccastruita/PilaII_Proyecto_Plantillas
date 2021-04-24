@@ -10,6 +10,7 @@ from shopping.models import Product
 
 # Create your views here.
 class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, AccessMixin, DeleteView):
+    """ Delete a selected comment """
     model = Comment
     template_name = 'comments/comment_delete.html'
     context_object_name = 'comment'
@@ -55,9 +56,9 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         return reverse('product_detail', kwargs={'product_pk': self.object.product.pk})
 
+""" Function based CreateView (unused)
 @login_required
 def comment_create_view(request, product_pk):
-    """ Function based view for posting comments (unused)"""
     product = Product.objects.get(pk=product_pk)
 
     if request.method == 'POST':
@@ -77,3 +78,4 @@ def comment_create_view(request, product_pk):
         context = {'comment_form': form, 'product': product}
 
     return render(request, 'shopping/product_detail.html', context=context)
+"""

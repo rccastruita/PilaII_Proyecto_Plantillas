@@ -11,6 +11,7 @@
         <h1 class="form__title">Confirmar</h1>
         <p>¿Eliminar comentario? Esto no se podrá revertir.</p>
         <button type="submit" class="btn btn--black form__submit">Eliminar</button>
+        <a class="btn" href="{% url 'product_detail' object.product.pk %}">Cancelar</a>
       </form>
     </section>
   </section>

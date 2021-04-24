@@ -7,17 +7,19 @@ from shopping.models import Product
 from .models import Comment
 
 def print_user(user):
-        print(f"Username: {user.username}")
-        print(f"Email: {user.email}")
-        print(f"Password: {user.password}")
-        if user.city is not None:
-            print(f"City: {user.city.pk} - {user.city}")
-        else:
-            print('City: None')
-        print(f"In mailing list: {user.in_mailing_list}")
-        print()
+    """ Print the given user to the console """
+    print(f"Username: {user.username}")
+    print(f"Email: {user.email}")
+    print(f"Password: {user.password}")
+    if user.city is not None:
+        print(f"City: {user.city.pk} - {user.city}")
+    else:
+        print('City: None')
+    print(f"In mailing list: {user.in_mailing_list}")
+    print()
 
 def print_product(product):
+    """ Print the given product to the console """
     print(f"Product: {product.name}:")
     print(f"  Primary Key: {product.pk}")
     print(f"  URL: {product.get_absolute_url()}")
@@ -28,6 +30,7 @@ def print_product(product):
     print()
 
 def print_comment(comment):
+    """ Print the given comment to the console """
     print(f"Comment {comment.pk}: ")
     print(f"  On: {comment.product}")
     print(f"  By: {comment.user}")
@@ -50,6 +53,7 @@ class CommentsTestCase(TestCase):
             password = 'bar16130789',
         )
 
+        # Raw passwords (for logins)
         self.raw_passwords = {
             'foo': 'foo16130789',
             'bar': 'bar16130789',
@@ -69,15 +73,18 @@ class CommentsTestCase(TestCase):
             body = 'Lorem ipsumasdflasdjnf',
         )
 
+        # Test Client for http requests
         self.c = Client()
 
     def test_comments_view(self):
+        """ Test if a product's DetailView Displays the product's comments """
         product = Product.objects.get()
         response = self.c.get(product.get_absolute_url())
         for i in Comment.objects.filter(product__exact=product):
             self.assertContains(response, i.body)
 
     def test_post_comment(self):
+        """ Test if sending a POST request to the CommentCreateView creates a comment """
         product = Product.objects.get()
         initial_comment_count = product.comments.count()
 
@@ -99,9 +106,11 @@ class CommentsTestCase(TestCase):
         self.assertEqual(initial_comment_count + User.objects.count(), product.comments.count())
 
     def test_post_validation(self):
+        """ TODO: Test validation for CommentCreateView """
         pass
 
     def test_comment_delete(self):
+        """ Test if sending a POST request to a comment's DeleteView deletes the comment """
         self.c.login(username='foo', password=self.raw_passwords['foo'])
         
         user = auth.get_user(self.c)
@@ -120,6 +129,8 @@ class CommentsTestCase(TestCase):
         self.assertNotIn(comment, Comment.objects.all())
 
     def test_comment_delete_validation(self):
+        """ Test if only the comment's author can delete a comment 
+        TODO: Also let superusers delete comments via this view """
         comment_foo = Comment.objects.create(
             user = User.objects.get(username='foo'),
             product = Product.objects.get(),
@@ -152,6 +163,7 @@ class CommentsTestCase(TestCase):
         self.assertIn(comment_foo, Comment.objects.all())
 
     def test_comment_editing(self):
+        """ Test the CommentUpdateView """
         product = Product.objects.get()
         user = User.objects.get(username='foo')
         comment = Comment.objects.create(
@@ -176,6 +188,7 @@ class CommentsTestCase(TestCase):
         self.assertEqual(updated_comment.body, new_body)
 
     def test_comment_editing_validation(self):
+        """ Test auth validation for CommentUpdateView """
         product = Product.objects.get()
         user = User.objects.get(username='foo')
         comment = Comment.objects.create(
@@ -210,6 +223,3 @@ class CommentsTestCase(TestCase):
             'rating': 0,
             'body': new_body,
         }, follow=True)
-        
-        #self.assertEqual(response_wrong_values.status_code, 400)
-        pass
