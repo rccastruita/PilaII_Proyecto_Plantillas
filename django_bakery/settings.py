@@ -93,7 +93,7 @@ DATABASES = {
         'NAME': 'django_bakery',
         'USER': 'django_bakery_user',
         'PASSWORD': 'bakery16130789',
-        'HOST': '127.0.0.1',
+        'HOST': 'db',
         'PORT': 5432,
     },
 }
