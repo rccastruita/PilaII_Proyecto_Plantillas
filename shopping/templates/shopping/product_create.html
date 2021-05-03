@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrar Producto - Laura's{% endblock title %}
+
+{% block content %}
+
+<main>
+  <section class="section section-top">
+    <section class="section-form">
+      <form class="form" action="" method="POST">{% csrf_token %}
+        <h1 class="form__title">Registrar Producto</h1>
+        {{ form.as_p }}
+        <button class="btn btn--black form__submit">Guardar</button>
+        <a class="btn btn--black" href="{% url 'product_list' %}">Cancelar</a>
+      </form>
+    </section>
+  </section>
+</main>
+
+{% endblock content %}

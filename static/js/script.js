@@ -4,5 +4,5 @@ $("#navbar-dropdown-button").on("click", function(event) {
 });
 
 $(".comment--clickable").on("click", function(event) {
-    alert("Comment clicked");
+    //alert("Comment clicked");
 })

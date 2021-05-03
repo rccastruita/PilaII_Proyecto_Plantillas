@@ -84,10 +84,18 @@ WSGI_APPLICATION = 'django_bakery.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
+    #'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': BASE_DIR / 'db.sqlite3',
+    #}
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'django_bakery',
+        'USER': 'django_bakery_user',
+        'PASSWORD': 'bakery16130789',
+        'HOST': '127.0.0.1',
+        'PORT': 5432,
+    },
 }
 
 
@@ -140,6 +148,7 @@ GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = 'media'
 
 # Custom user config
 AUTH_USER_MODEL = 'users.User'
+LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
@@ -154,7 +163,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config('SMTP_USER')
 EMAIL_HOST_PASSWORD = config('SMTP_PASSWORD')
 
-# AUTH
-LOGIN_URL = '/users/login/'
 
 TIME_ZONE = 'America/Monterrey'

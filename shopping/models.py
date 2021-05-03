@@ -6,6 +6,7 @@ import time
 gd_storage = GoogleDriveStorage() # Cloud file manager initialization
 
 class ProductCategory(models.Model):
+    """ Category for a product """
     name = models.CharField(max_length=30, default='Category')
     description = models.TextField(default='')
 
@@ -17,6 +18,7 @@ def product_image_path(instance, filename):
     return f"products/{instance.name}_{time.strftime('%Y%m%d%H%M%S')}{filename[-4:]}"
 
 class Product(models.Model):
+    """ Product to display on the catalog """
     category = models.ForeignKey(ProductCategory, null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=30, default='Nombre_Producto')
     description = models.TextField(default='')
@@ -28,10 +30,12 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('product_detail', kwargs={'product_pk':self.pk})
 
+    # Url for the CommentCreateView of a specific product
     def get_new_comment_url(self):
         return reverse('comment_create', kwargs={'product_pk':self.pk})
 
 class ProductPresentation(models.Model):
+    """ Size or form of selling the product (small/big, 100gr, slice, etc.) """
     product = models.ForeignKey(Product, related_name='presentations', on_delete=models.CASCADE)
     name = models.CharField(max_length=30, default='Regular')
     price = models.DecimalField(max_digits=6, decimal_places=2)
