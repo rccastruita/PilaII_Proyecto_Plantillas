@@ -7,37 +7,40 @@
 <main>
     <section class="section-top u-margin-header">
         <h1>Sucursales</h1>
-        
+        {% if perms.stores.add_store %}
+            <a href="{% url 'store_create' %}">Agregar</a>
+        {% endif %}
         <div class="contact-grid">
             {% for store in stores %}
             <div class="contact-grid__item">
                 <h3 class="contact-card__heading heading-tertiary">
                     {{ store.name }}
                     <span class="contact-card__edit">
-                        <a href="{% url 'store_update' store.pk %}">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                        <a href="{% url 'store_delete' store.pk %}">
-                            <i class="fas fa-trash"></i>
-                        </a>
+                        {% if perms.stores.change_store %}
+                            <a href="{% url 'store_update' store.pk %}">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        {% endif %}
+                        {% if perms.stores.delete_store %}
+                            <a href="{% url 'store_delete' store.pk %}">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        {% endif %}
                     </span>
                 </h3>
                 <p class="contact-grid__item__paragraph">
                     {{ store.address }}<br>
                     C.P. {{ store.zip_code }}
-                    
                 </p>
-                <a href="tel:{{ store.phone_number }}" class="contact-grid__item__button--left btn-text"><i class="fab fa-whatsapp"></i>  {{ sucursal.telefono }}</a>
-                
-                <a href="mailto:{{ store.email }}" class="contact-grid__item__button--right btn-text">{{ store.email }}</a>
+                <a href="tel:{{ store.phone_number }}" class="contact-grid__item__button--left btn-text">
+                    <i class="fab fa-whatsapp"></i>  {{ sucursal.telefono }}
+                </a>
+                <a href="mailto:{{ store.email }}" class="contact-grid__item__button--right btn-text">
+                    {{ store.email }}
+                </a>
 
             </div>
             {% endfor %}
-            <div class="contact-grid__item--centered contact-add">
-                <a href="{% url 'store_create' %}">
-                    <i class="fas fa-plus-circle"></i>
-                </a>
-            </div>
         </div>
     </section>
 </main>

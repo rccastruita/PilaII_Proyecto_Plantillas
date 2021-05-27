@@ -28,13 +28,17 @@ class ProductDetailView(DetailView, ContextMixin):
     # Form for posting comments
     extra_context = {'comment_form': CommentModelForm()}
 
-class ProductCreateView(CreateView):
+class ProductCreateView(PermissionRequiredMixin, CreateView):
+    permission_required = 'shopping.add_product'
+
     model = my_models.Product
     fields = '__all__'
     template_name = 'shopping/product_create.html'
     success_url = reverse_lazy('product_list')
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'shopping.change_product'
+
     model = my_models.Product
     pk_url_kwarg = 'product_pk'
     context_object_name = 'product'
@@ -42,7 +46,9 @@ class ProductUpdateView(UpdateView):
     template_name = 'shopping/product_update.html'
     success_url = reverse_lazy('product_list')
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = 'shopping.delete_product'
+
     model = my_models.Product
     pk_url_kwarg = 'product_pk'
     context_object_name = 'product'
