@@ -15,6 +15,15 @@ con enlaces a sus DetailView respectivos.
 <main>
   <section class="section section-products-list">
     <h1 class="section__title">Productos</h1>
+
+    {% comment %}
+    Url para agregar un registro
+    Solo se mmuestra si el usuario cuenta con los permisos necesarios
+    {% endcomment %}
+    {% if perms.shopping.add_product %}
+      <a href="{% url 'product_create' %}">Agregar</a>
+    {% endif %}
+
     <div class="grid products-grid">
       {% for product in products %}
         {% include 'shopping/product_card.html' with product=product %}

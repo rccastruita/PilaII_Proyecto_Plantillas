@@ -5,9 +5,14 @@ a {
   font-family: 'Roboto', sans-serif;
 }
 
+p {
+  color: var(--color-neutral-900);
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Dancing Script";
   font-weight: 700;
+  color: var(--color-neutral-900);
 }
 
 ul, ol {

@@ -9,6 +9,21 @@
     <h1 class="split__title">
       {{ product.name }}
     </h1>
+
+    {% comment %}
+    Urls para editar o eliminar registros
+    Solo se muestran si el usuario cuenta con los permisos necesarios.
+    {% endcomment %}
+    <div>
+      {% if perms.shopping.change_product %}
+        <a href="{% url 'product_delete' product.pk %}">Eliminar</a>
+      {% endif %}
+      {% if perms.shopping.change_product and perms.shopping.delete_product %} | {% endif %}
+      {% if perms.shopping.delete_product %}
+        <a href="{% url 'product_update' product.pk %}">Modificar</a>
+      {% endif %}
+    </div>
+
     <div class="split">
       <div class="split__column split__column--left">
         <p class="split__paragraph">{{ product.description }}</p>

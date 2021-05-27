@@ -45,8 +45,8 @@ a:not([class]) {
   --product-card-height: 16em;
   --color-offset: 0;
   --color-primary-h: calc(var(--color-offset) + 30);
-  --color-primary-s: 50%;
-  --color-primary-l: 85%;
+  --color-primary-s: 80%;
+  --color-primary-l: 0%;
   --color-primary-400: hsl(
     var(--color-primary-h),
     var(--color-primary-s),
@@ -73,9 +73,14 @@ a {
   font-family: "Roboto", sans-serif;
 }
 
+p {
+  color: var(--color-neutral-900);
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Dancing Script";
   font-weight: 700;
+  color: var(--color-neutral-900);
 }
 
 .logo {
@@ -167,6 +172,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
   font-size: min(9vmin, 3rem);
   line-height: 0.8em;
+  color: var(--color-neutral-000);
 }
 .hero__slogan h1 strong {
   font-weight: 900;
@@ -315,6 +321,7 @@ body {
   display: grid;
   grid-template-rows: 1fr auto;
   min-height: 100%;
+  background-color: var(--color-neutral-000);
 }
 
 main {
@@ -560,6 +567,8 @@ main {
   text-decoration: none;
   font-weight: 900;
   border-radius: 10em;
+  font-family: "Roboto";
+  font-size: 1rem;
 }
 .btn--primary {
   background-color: var(--color-primary-400);

@@ -7,6 +7,13 @@
       </div>
     </a>
     <a class="footer__link" href="{% url 'about' %}">Quiénes somos</a>
+    
+    {# Switch para modo oscuro #}
+    <div>
+      <label for="dark-mode-switch">Modo oscuro</label>
+      <input type="checkbox" name="dark-mode-switch" id="dark-mode-switch">
+    </div>
+    
   </div>
   <div class="footer__column footer__column--2">
     <a class="footer__link footer__link--main" href="{% url 'product_list' %}">Productos</a>
