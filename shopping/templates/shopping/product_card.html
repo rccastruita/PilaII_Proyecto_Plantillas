@@ -7,7 +7,9 @@ Muestra la imagen del producto y su nombre.
 {% endcomment %}
 
 <a href="{{ product.get_absolute_url }}" class="card">
-  <img class="card__picture" src="{{ product.image.url }}" alt="">
+  {% if product.image %}
+    <img class="card__picture" src="{{ product.image.url }}" alt="">
+  {% endif %}
   <div class="card__heading">
     <span>{{ product.name }}</span>
   </div>
