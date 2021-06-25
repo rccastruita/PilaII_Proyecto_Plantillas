@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account %}
+
+{% block title %}{% trans "Verificación de correo electrónico" %}{% endblock %}
+
+
+{% block content %}
+<main>
+<section class="section section-top">
+<section class="section-form">
+<h1>{% trans "Verificación de correo electrónico" %}</h1>
+
+{% if confirmation %}
+
+{% user_display confirmation.email_address.user as user_display %}
+
+<p>{% blocktrans with confirmation.email_address.email as email %}Por favor confirme que <a href="mailto:{{ email }}">{{ email }}</a> es un correo electrónico perteneciente a {{ user_display }}.{% endblocktrans %}</p>
+
+<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+{% csrf_token %}
+    <button type="submit">{% trans 'Confirmar' %}</button>
+</form>
+
+{% else %}
+
+{% url 'account_email' as email_url %}
+
+<p>{% blocktrans %}Este enlace de confirmación ha expirado. <a href="{{ email_url }}">Reenviar correo de confirmación.</a>.{% endblocktrans %}</p>
+
+{% endif %}
+
+</section>
+</section>
+</main>
+{% endblock %}

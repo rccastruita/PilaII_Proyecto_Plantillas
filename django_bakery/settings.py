@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# SITE settings
+SITE_ID = 1
+
 
 # Application definition
 
@@ -43,6 +46,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'fontawesome-free', # icons
     'gdstorage', # Google Drive storage API
+    # allauth --------------------------------
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    #'allauth.socialaccount.providers.facebook',
+    #'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -152,7 +163,7 @@ GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = 'media'
 
 # Custom user config
 AUTH_USER_MODEL = 'users.User'
-LOGIN_URL = '/users/login/'
+LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
@@ -169,3 +180,15 @@ EMAIL_HOST_PASSWORD = config('SMTP_PASSWORD')
 
 
 TIME_ZONE = 'America/Monterrey'
+
+# allauth settings
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
+
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 15

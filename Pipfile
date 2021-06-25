@@ -12,6 +12,7 @@ gunicorn = "*"
 whitenoise = "*"
 python-decouple = "*"
 psycopg2-binary = "*"
+django-allauth = "*"
 
 [dev-packages]
 

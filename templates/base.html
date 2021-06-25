@@ -57,6 +57,9 @@ la barra de navegación y el pie de página.
 {# SVG icons #}
 {% include 'svg/icons_sprite.svg' %}
 
+{# Extra body content #}
+{% block extra_body %}{% endblock extra_body %}
+
 {# Cargar archivo js #}
 <script src="{% static 'js/script.js' %}"></script>
 </body>
