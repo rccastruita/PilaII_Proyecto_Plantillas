@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% comment %}
+
+product_list.html
+Plantilla para ProductListView
+Muestra una lista de los productos guardados en la BD,
+con enlaces a sus DetailView respectivos.
+
+{% endcomment %}
+
+{% block title %}Carrito | Laura's{% endblock %}
+
+{% block content %}
+<main>
+  <section class="section section-products-list">
+    <h1 class="section__title">Carrito</h1>
+
+    <div class="cart-container">
+      <table class="cart">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cart %}
+          <tr>
+            <td class="cart__item">
+              <a href="{{ item.presentation.product.get_absolute_url }}">
+                {{ item.presentation.product.name }} {{ item.presentation.name }}
+              </a>
+            </td>
+            <td>
+              {{ item.count }}
+            </td>
+            <td>
+              ${{ item.presentation.price }}
+            </td>
+            <td>
+              <a href="{% url 'cart_delete' item.pk %}">Eliminar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>
+              Subtotal
+            </th>
+            <td class="u-td-right" colspan="2">
+              ${{ subtotal.total_price }}
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+</main>
+{% endblock %}

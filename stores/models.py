@@ -7,7 +7,7 @@ class City(models.Model):
         return f"{self.name}"
 
 class Store(models.Model):
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.PROTECT)
     name = models.CharField(max_length=40, default="Store")
     address = models.CharField(max_length=60, default="Calle 12 #123")
     zip_code = models.CharField(max_length=10, default="27123")

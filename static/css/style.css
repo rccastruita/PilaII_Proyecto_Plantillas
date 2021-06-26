@@ -510,10 +510,14 @@ main {
 .form p input[type=text],
 .form p input[type=password],
 .form p input[type=email],
-.form p textarea, .form__field input[type=text],
+.form p input[type=number],
+.form p textarea,
+.form p select, .form__field input[type=text],
 .form__field input[type=password],
 .form__field input[type=email],
-.form__field textarea {
+.form__field input[type=number],
+.form__field textarea,
+.form__field select {
   display: block;
   padding: 0.3rem;
   width: 100%;
@@ -737,6 +741,10 @@ main {
 }
 .star--checked .star__icon {
   fill: #ffc105;
+}
+
+#price_and_available {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

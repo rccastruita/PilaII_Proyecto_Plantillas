@@ -27,13 +27,35 @@
     <div class="split">
       <div class="split__column split__column--left">
         <p class="split__paragraph">{{ product.description }}</p>
-        <h2 class="split__subtitle">
-          Presentaciones
-        </h2>
+        <hr>
         <div class="product-presentations">
+          {% comment %}
           {% for presentation in product.presentations.all %}
             <p><strong>{{ presentation.name }}</strong> - ${{ presentation.price }}</p>
           {% endfor %}
+          {% endcomment %}
+
+          <form class="form" action="{% url 'cart_create' %}" method="POST">{% csrf_token %}
+            <div class="form__field">
+              <label for="presentation" class="form__label">
+                Presentaciones
+              </label>
+              <select name="presentation" id="presentation" required>
+                <option value="">Elija una presentación</option>
+                {% for presentation in product.presentations.all %}
+                <option value="{{ presentation.pk }}" data-max="{{ presentation.inventory }}" data-price="{{ presentation.price }}">{{ presentation.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+
+            <p id="price_and_available" display="none">$<span id="presentation_price"></span> - Disponibles: <span id="presentation_available"></span></p>
+
+            <div class="form__field">
+              <label for="count">Cantidad</label>
+              <input type="number" name="count" id="count" step="1" min="1" max="1" required>
+            </div>
+            <button type="submit" class="btn btn--black form__submit">Agregar al carrito</button>
+          </form>
         </div>
       </div>
       {% if product.image %}
@@ -101,3 +123,21 @@
 </main>
 
 {% endblock %}
+
+{% block extra_body %}
+  <script type="text/javascript" >
+    $("#presentation").change(function() {
+      if( $("#presentation option:selected").attr("value") != "" ) {
+        $("#presentation_price").text($("#presentation option:selected").attr("data-price"));
+        $("#presentation_available").text($("#presentation option:selected").attr("data-max"));
+        $("#price_and_available").toggle(true);
+
+        $("#count").attr("max", $("#presentation option:selected").attr("data-max"));
+      }
+    });
+
+    if( $("#presentation option:selected").attr("value") != "" ) {
+      $("#presentation").trigger("change");
+    }
+  </script>
+{% endblock extra_body %}

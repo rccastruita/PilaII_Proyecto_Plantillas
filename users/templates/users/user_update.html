@@ -12,7 +12,9 @@
         {{ form.as_p }}
         <div class="form__input">
           <span class="form__label">Contraseña</span>
-          <p class="form__message">Para cambiar la contraseña, haz clic <a href="{% url 'password_change' %}">aquí.</a></p>
+          <p class="form__message">
+            Para cambiar la contraseña, haz clic <a href="{% url 'account_set_password' %}">aquí.</a>
+          </p>
         </div>
         <button type="submit" class="btn btn--black form__submit">Confirmar cambios</button>
       </form>

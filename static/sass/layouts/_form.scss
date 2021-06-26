@@ -25,14 +25,16 @@
     input[type=text],
     input[type=password],
     input[type=email],
-    textarea {
+    input[type=number],
+    textarea,
+    select {
       display: block;
       padding: 0.3rem;
       width: 100%;
       font-family: "Roboto";
       color: var(--color-neutral-700);
     }
-
+    
     .helptext {
       font-size: 0.7rem;
     }
