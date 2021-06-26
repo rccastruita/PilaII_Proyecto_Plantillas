@@ -2,6 +2,8 @@ from django.db import models
 from gdstorage.storage import GoogleDriveStorage # Google Cloud media files
 from django.urls import reverse
 from django.conf import settings
+
+from decimal import Decimal
 import time
 
 gd_storage = GoogleDriveStorage() # Cloud file manager initialization
@@ -47,9 +49,12 @@ class ProductPresentation(models.Model):
 
 class CartItem(models.Model):
     """ Item in a shopping cart """
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='shopping_cart', on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='cart', on_delete=models.CASCADE)
     presentation = models.ForeignKey(ProductPresentation, on_delete=models.PROTECT)
     count = models.PositiveIntegerField(default=1)
 
     def __str__(self):
         return f"{self.presentation.product.name} {self.presentation.name}"
+
+    def get_amount(self):
+        return Decimal(self.count * self.presentation.price)

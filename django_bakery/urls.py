@@ -23,5 +23,7 @@ urlpatterns = [
     path('accounts/edit/', UserUpdateView.as_view(), name='user_update'),
     path('accounts/', include('allauth.urls')),
     path('stores/', include('stores.urls')),
+    path('payments/', include('my_payments.urls')),
+    path('payments/', include('payments.urls')),
     path('', include('shopping.urls')),
 ]

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'users',
     'shopping',
     'comments',
+    'my_payments',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,6 +55,8 @@ INSTALLED_APPS = [
     #'allauth.socialaccount.providers.facebook',
     #'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.google',
+    # payments ---------------------------------
+    'payments',
 ]
 
 MIDDLEWARE = [
@@ -192,3 +195,16 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
 
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 15
+
+# Payments -------------------------------
+PAYMENT_HOST = 'localhost:8000'
+PAYMENT_USES_SSL = False
+PAYMENT_MODEL = 'my_payments.Payment'
+PAYMENT_VARIANTES = {
+    'default': ('payments.dummy.DummyProvider', {})
+}
+
+from decimal import Decimal
+TAX = Decimal(0.16)
+CURRENCY = 'MXN'
+DELIVERY_FEE = Decimal(50)

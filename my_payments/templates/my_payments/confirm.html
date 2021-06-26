@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Comprar | Laura's{% endblock title %}
+
+{% block content %}
+  <main>
+    <section class="section section-top">
+      <h1>Procesar compra</h1>
+      <table class="checkout-table">
+        <thead>
+          <tr>
+            <td>Producto</td>
+            <td>Precio Unitario</td>
+            <td>Cantidad</td>
+            <td>Importe</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in user.cart.all %}
+          <tr>
+            <td>{{ item }}</td>
+            <td>${{ item.presentation.price }}</td>
+            <td>{{ item.count }}</td>
+            <td>${{ item.get_amount }}</td>
+          </tr>
+          {% endfor %}
+          <tr>
+            <th>Subtotal</th>
+            <th colspan="3" >${{ user.get_cart_subtotal }}</th>
+          </tr>
+          <tr>
+            <th>Impuestos</th>
+            <td>16%</td>
+            <td>${{ user.get_cart_taxes|floatformat:2 }}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Total</th>
+            <th colspan="3">${{ user.get_cart_total|floatformat:2 }}</th>
+          </tr>
+        </tfoot>
+      </table>
+      <form action="{% url 'start_purchase' %}" method="POST">{% csrf_token %}
+        <button class="btn btn--black" type="submit">Siguiente</button>
+      </form>
+    </section>
+  </main>
+{% endblock content %}

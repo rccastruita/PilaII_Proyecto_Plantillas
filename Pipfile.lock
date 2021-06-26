@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "75fc0daa7d897fa67a258a706246437d039940fb66dd777ec60e3aa56b1cc49b"
+            "sha256": "2054def7ce20adae4d51ece94a9e2ef63a2a16a590cd803b7502d10ec887ab2c"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -23,6 +23,13 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==3.3.4"
+        },
+        "braintree": {
+            "hashes": [
+                "sha256:ee5e596af102bb5754d9140b6388e2fef0c45591c55bc492b257fd14e950ba19",
+                "sha256:f934a329c7a2b3f7058d5c733cc95da694f66afb5a789162ec701ba4d26a0d90"
+            ],
+            "version": "==4.10.0"
         },
         "cachetools": {
             "hashes": [
@@ -154,6 +161,14 @@
             ],
             "index": "pypi",
             "version": "==1.5.2"
+        },
+        "django-payments": {
+            "hashes": [
+                "sha256:4572229f6197d96ef1023f635bc8829aa6db981e126308cf0f56cb864507b5f9",
+                "sha256:f109b2c9b221baa931e9cf526a0deac04ef00e051b580b8def5bfffa162c5d3c"
+            ],
+            "index": "pypi",
+            "version": "==0.14.0"
         },
         "fontawesome-free": {
             "hashes": [
@@ -399,11 +414,11 @@
                 "crypto"
             ],
             "hashes": [
-                "sha256:934d73fbba91b0483d3857d1aff50e96b2a892384ee2c17417ed3203f173fca1",
-                "sha256:fba44e7898bbca160a2b2b501f492824fc8382485d3a6f11ba5d0c1937ce6130"
+                "sha256:5c6eca3c2940464d106b99ba83b00c6add741c9becaec087fb7ccdefea71350e",
+                "sha256:8d59a976fb773f3e6a39c85636357c4f0e242707394cadadd9814f5cbaa20e96"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==2.1.0"
+            "version": "==1.7.1"
         },
         "pyparsing": {
             "hashes": [
@@ -448,7 +463,7 @@
                 "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804",
                 "sha256:c210084e36a42ae6b9219e00e48287def368a26d03a048ddad7bfee44f75871e"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
+            "markers": "python_version >= '3.0'",
             "version": "==2.25.1"
         },
         "requests-oauthlib": {
@@ -483,6 +498,21 @@
             "markers": "python_version >= '3.5'",
             "version": "==0.4.1"
         },
+        "stripe": {
+            "hashes": [
+                "sha256:15a2068dce84e9cc68a41b006286dc58ebe55a7999cdbd8bb1b1e5d2c4594c7f",
+                "sha256:34829b528e652ffc919d40eff2ba78021149818bab76e33c07801382921cf6d5"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "version": "==2.58.0"
+        },
+        "suds-jurko": {
+            "hashes": [
+                "sha256:1cb7252cb13018fc32887c3a834ed7c6648a5b5c4c159be5806da2e1785399e8",
+                "sha256:29edb72fd21e3044093d86f33c66cf847c5aaab26d64cb90e69e528ef014e57f"
+            ],
+            "version": "==0.6"
+        },
         "uritemplate": {
             "hashes": [
                 "sha256:07620c3f3f8eed1f12600845892b0e036a2420acf513c53f7de0abd911a5894f",
@@ -493,11 +523,11 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:753a0374df26658f99d826cfe40394a686d05985786d946fbe4165b5148f5a7c",
-                "sha256:a7acd0977125325f516bda9735fa7142b909a8d01e8b2e4c8108d0984e6e0098"
+                "sha256:39fb8672126159acb139a7718dd10806104dec1e2f0f6c88aab05d17df10c8d4",
+                "sha256:f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
-            "version": "==1.26.5"
+            "version": "==1.26.6"
         },
         "whitenoise": {
             "hashes": [
@@ -506,6 +536,13 @@
             ],
             "index": "pypi",
             "version": "==5.2.0"
+        },
+        "xmltodict": {
+            "hashes": [
+                "sha256:50d8c638ed7ecb88d90561beedbf720c9b4e851a9fa6c47ebd64e99d166d8a21",
+                "sha256:8bbcb45cc982f48b2ca8fe7e7827c5d792f217ecf1792626f808bf41c3b86051"
+            ],
+            "version": "==0.12.0"
         }
     },
     "develop": {}
