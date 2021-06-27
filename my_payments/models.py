@@ -8,6 +8,10 @@ from payments.models import BasePayment
 class Purchase(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='purchases', on_delete=models.PROTECT)
+    delivered = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.date}: {self.user}"
 
 class PurchaseItem(models.Model):
     purchase = models.ForeignKey(Purchase, related_name='items', on_delete=models.PROTECT)
@@ -26,7 +30,18 @@ class Payment(BasePayment):
         return reverse('soon')
 
     def get_success_url(self):
-        return reverse('cart')
+        return reverse('payment_accepted', kwargs={'payment_id':self.pk})
 
     def get_purchased_items(self):
-        yield None
+        for item in self.purchase_info.items.all():
+            yield PurchasedItem(
+                name = item.name,
+                quantity = item.quantity,
+                price = item.price,
+                currency = item.currency,
+                sku = item.sku,
+                tax_rate = item.tax_rate,
+            )
+
+    def __str__(self):
+        return f"{self.pk} - {self.purchase_info}"

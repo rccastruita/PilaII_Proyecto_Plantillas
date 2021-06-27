@@ -5,6 +5,7 @@
 {% block content %}
 <main>
   <section class="section section-top">
+    <h1>Procesar pago</h1>
     <form action="{{ form.action }}" method="{{ form.method }}">{% csrf_token %}
       {{ form.as_p }}
       <button class="btn btn--black" type="submit">Confirmar</button>

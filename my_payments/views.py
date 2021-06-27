@@ -5,22 +5,29 @@ from django.conf import settings
 
 from payments import get_payment_model, RedirectNeeded
 from .models import Purchase, PurchaseItem
+from shopping.models import ProductPresentation
 from .forms import PaymentClientForm
 
-def payment_details(request, payment_id):
+def payment_details(request, payment_id):    
+    payment = get_object_or_404(get_payment_model(), id=payment_id)
+    if request.method == 'POST':
+        client_form = PaymentClientForm(request.POST, instance=payment)
+        if client_form.is_valid():
+            payment = client_form.save()
+            try:
+                form = payment.get_form(data=request.POST or None)
+            except RedirectNeeded as redirect_to:
+                return redirect(str(redirect_to))
+            return TemplateResponse(request, 'my_payments/payment.html',
+                                    {'form': form, 'payment': payment})
+
+def purchase_details(request, payment_id):
     payment = get_object_or_404(get_payment_model(), id=payment_id)
     
     if request.method == 'GET':
         client_form = PaymentClientForm(instance=payment)
         return TemplateResponse(request, 'my_payments/client_form.html',
             {'form': client_form, 'payment': payment})
-    else:
-        try:
-            form = payment.get_form(data=request.POST or None)
-        except RedirectNeeded as redirect_to:
-            return redirect(str(redirect_to))
-        return TemplateResponse(request, 'my_payments/payment.html',
-                                {'form': form, 'payment': payment})
 
 class PurchaseConfirmPage(TemplateView):
     template_name = 'my_payments/confirm.html'
@@ -65,11 +72,23 @@ def start_purchase(request):
         )
         payment.save()
 
-        return redirect('payment_details', payment_id=payment.pk)
+        return redirect('purchase_details', payment_id=payment.pk)
 
     else:
         return redirect('checkout')
 
+def payment_accepted(request, payment_id):
+    payment = get_object_or_404(get_payment_model(), id=payment_id)
+    purchase = payment.purchase_info
 
-class PurchasePaymentPage(TemplateView):
-    template_name = 'my_payments/payment_details.html'
+    if not purchase.delivered:
+        for purchase_item in purchase.items.all():
+            product = ProductPresentation.objects.get(pk=int(purchase_item.sku))
+            product.inventory -= purchase_item.quantity
+            product.save()
+
+        request.user.cart.all().delete()
+        purchase.delivered = True
+        purchase.save()
+
+    return redirect('home')

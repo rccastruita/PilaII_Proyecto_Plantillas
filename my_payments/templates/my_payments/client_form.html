@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Datos del pago{% endblock title %}
+
+{% block content %}
+<main>
+  <section class="section section-top">
+    <form action="{% url 'payment_details' payment.pk %}" method="POST">{% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn--black" type="submit">Confirmar</button>
+    </form>
+  </section>
+</main>
+{% endblock content %}
