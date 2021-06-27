@@ -29,12 +29,6 @@
         <p class="split__paragraph">{{ product.description }}</p>
         <hr>
         <div class="product-presentations">
-          {% comment %}
-          {% for presentation in product.presentations.all %}
-            <p><strong>{{ presentation.name }}</strong> - ${{ presentation.price }}</p>
-          {% endfor %}
-          {% endcomment %}
-
           <form class="form" action="{% url 'cart_create' %}" method="POST">{% csrf_token %}
             <div class="form__field">
               <label for="presentation" class="form__label">
@@ -65,6 +59,8 @@
       {% endif %}
     </div>
   </section>
+
+  {# Comments section ----------------------------------------------------------------------------- #}
   <section class="section section-comments">
     <h1 class="section__title">Comentarios</h1>
     {% for comment in product.comments.all %}
@@ -74,16 +70,18 @@
             {{ comment.user.username }}
           </h2>
           <span class="comment__timestamp">{{ comment.timestamp|date:'SHORT_DATETIME_FORMAT' }}</span>
-          {% if user == comment.user %}
             <span class="comment__edit">
-              <a href="{% url 'comment_update' product_pk=product.pk comment_pk=comment.pk %}">
-                <i class="fas fa-edit"></i>
-              </a>
-              <a href="{% url 'comment_delete' product_pk=product.pk comment_pk=comment.pk %}">
-                <i class="fas fa-trash"></i>
-              </a>
+              {% if user == comment.user or perms.comments.edit_other_comments %}
+                <a href="{% url 'comment_update' product_pk=product.pk comment_pk=comment.pk %}">
+                  <i class="fas fa-edit"></i>
+                </a>
+              {% endif %}
+              {% if user == comment.user or perms.comments.delete_other_comments %}
+                <a href="{% url 'comment_delete' product_pk=product.pk comment_pk=comment.pk %}">
+                  <i class="fas fa-trash"></i>
+                </a>
+              {% endif %}
             </span>
-          {% endif %}
         </div>
         <div class="comment__body">
           <p class="comment__paragraph">{{ comment.body }}</p>

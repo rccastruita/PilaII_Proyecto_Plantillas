@@ -21,7 +21,7 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, AccessMixin, De
     permission_denied_message = 'No cuentas con los permisos suficientes para borrar comentarios de terceros.'
 
     def test_func(self): # Condition for allowing access
-        return self.get_object().user == self.request.user
+        return self.get_object().user == self.request.user or self.request.user.has_perm('comments.delete_other_comments')
 
     def get_success_url(self): # Redirect to this url after delete
         return reverse_lazy('product_detail', kwargs={'product_pk': self.get_object().product.pk})
@@ -38,7 +38,7 @@ class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, AccessMixin, Up
     permission_denied_message = 'No cuentas con los permisos suficientes para editar comentarios de terceros.'
 
     def test_func(self):
-        return self.get_object().user == self.request.user
+        return self.get_object().user == self.request.user or self.request.user.has_perm('comments.edit_other_comments')
     
     def get_success_url(self):
         return reverse('product_detail', kwargs={'product_pk': self.get_object().product.pk})

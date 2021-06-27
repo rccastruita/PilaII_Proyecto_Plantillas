@@ -27,6 +27,12 @@ class Comment(models.Model):
             (5, 'Excelente'),
         ]
     )
+    
+    class Meta:
+        permissions = [
+            ('delete_other_comments', 'Puede eliminar comentarios ajenos'),
+            ('edit_other_comments', 'Puede editar comentarios ajenos'),
+        ]
 
     def __str__(self):
         return f"{self.pk}->{self.user.username}: {self.body[:15]}"
