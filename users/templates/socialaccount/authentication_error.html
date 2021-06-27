@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Error de inicio de sesión" %}{% endblock %}
+
+{% block content %}
+<main>
+  <section class="section section-top">
+    <h1>{% trans "Error de inicio de sesión" %}</h1>
+    <p>{% trans "Ocurrió un error al intentar iniciar sesión con una cuenta externa." %}</p>
+  </section>
+</main>
+{% endblock %}

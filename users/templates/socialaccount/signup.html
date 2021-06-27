@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Login" %}{% endblock %}
+
+{% block content %}
+<main>
+  <section class="section section-top">
+    <h1>{% trans "Inicio de sesión" %}</h1>
+
+    <p>{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}Está a punto de usar su cuenta de {{provider_name}} para iniciar sesión en 
+    {{site_name}}. Como último paso, por favor complete el siguiente formulario:{% endblocktrans %}</p>
+
+    <form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <button type="submit">{% trans "Iniciar sesión" %} &raquo;</button>
+    </form>
+
+  </section>
+</main>
+{% endblock %}

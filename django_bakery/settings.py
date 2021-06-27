@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     #'allauth.socialaccount.providers.facebook',
-    #'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.google',
     # payments ---------------------------------
     'payments',

@@ -11,6 +11,10 @@
         <h1 class="form__title">Editar perfil de usuario</h1>
         {{ form.as_p }}
         <div class="form__input">
+          <span class="form__label">Cuentas externas</span>
+          <p class="form__message">
+            Para manejar sus cuentas de servicios externos, visite <a href="{% url 'socialaccount_connections' %}">este enlace.</a>
+          </p>
           <span class="form__label">Contraseña</span>
           <p class="form__message">
             Para cambiar la contraseña, haz clic <a href="{% url 'account_set_password' %}">aquí.</a>
