@@ -9,7 +9,7 @@ from django.shortcuts import render, redirect
 from . import models as my_models
 from .models import CartItem
 
-from django.db.models import F, Sum, DecimalField
+from django.db.models import F, Sum, DecimalField, Q
 
 from comments.forms import CommentModelForm
 from .forms import CartItemModelForm
@@ -24,6 +24,17 @@ class ProductListView(ListView):
     model = my_models.Product
     template_name = 'shopping/product_list.html'
     context_object_name = 'products'
+
+    def get_queryset(self):
+        search_query = self.request.GET.get('query')
+        if search_query:
+            return my_models.Product.objects.filter(
+                Q(name__icontains=search_query)
+                | Q(category__name__icontains=search_query)
+                | Q(presentations__name__icontains=search_query)
+            )
+        else:
+            return my_models.Product.objects.all()
 
 class ProductDetailView(DetailView, ContextMixin):
     model = my_models.Product
@@ -76,7 +87,6 @@ class CartListView(ListView):
 
     def get_queryset(self):
         return CartItem.objects.filter(user=self.request.user)
-        #return cart.annotate(total_price=F('count') * F('presentation__price'))
 
 class CartDeleteView(DeleteView):
     model = CartItem

@@ -16,6 +16,7 @@ con enlaces a sus DetailView respectivos.
   <section class="section section-products-list">
     <h1 class="section__title">Carrito</h1>
 
+    {% if cart %}
     <div class="cart-container">
       <table class="cart">
         <thead>
@@ -58,6 +59,11 @@ con enlaces a sus DetailView respectivos.
       </table>
     </div>
     <a href="{% url 'checkout' %}" class="btn btn--black">Comprar</a>
+    {% else %}
+    <p>No hay artículos en el carrito, para agregar un artículo, visite nuestro 
+    <a href="{% url 'product_list' %}">catálogo de productos.</a></p>
+    {% endif %}
+
   </section>
 </main>
 {% endblock %}
