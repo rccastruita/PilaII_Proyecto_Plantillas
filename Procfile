@@ -1,1 +1,0 @@
-web: gunicorn django_bakery.wsgi --log-file -
