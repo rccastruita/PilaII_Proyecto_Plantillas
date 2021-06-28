@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path, os
+from decouple import config, Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9_u(upj=f=99s9kx^n*99r2=*r02!s!2wq%8)8)i_qzcz$u1u$'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 # SITE settings
 SITE_ID = 1
@@ -47,12 +48,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'fontawesome-free', # icons
     'gdstorage', # Google Drive storage API
-    # allauth --------------------------------
+    # allauth apps -------------------------------------
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    #'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.google',
     # payments ---------------------------------
@@ -98,17 +98,13 @@ WSGI_APPLICATION = 'django_bakery.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    #'default': {
-    #    'ENGINE': 'django.db.backends.sqlite3',
-    #    'NAME': BASE_DIR / 'db.sqlite3',
-    #}
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_bakery',
-        'USER': 'django_bakery_user',
-        'PASSWORD': 'bakery16130789',
-        'HOST': 'db',
-        'PORT': 5432,
+        'ENGINE': config('DB_ENGINE'),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     },
 }
 
@@ -135,9 +131,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-MX'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Monterrey'
 
 USE_I18N = True
 
@@ -160,29 +156,24 @@ STATICFILES_FINDERS = [
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Media files storage (Google Cloud)
+# Media files storage (Google Cloud) ----------------------------------------------------
 GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = os.path.join(BASE_DIR, 'credentials.json')
 GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = 'media'
 
-# Custom user config
+# Custom user config --------------------------------------------------------------------
 AUTH_USER_MODEL = 'users.User'
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-# Email backend for password reset
+# Email backend for password reset ------------------------------------------------------
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-from decouple import config
 
 EMAIL_HOST = 'smtp.googlemail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config('SMTP_USER')
 EMAIL_HOST_PASSWORD = config('SMTP_PASSWORD')
-
-
-TIME_ZONE = 'America/Monterrey'
 
 # allauth settings
 AUTHENTICATION_BACKENDS = [

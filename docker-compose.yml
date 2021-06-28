@@ -1,24 +1,11 @@
 services:
     web:
-        build: .
-        command: python /code/manage.py runserver 0.0.0.0:8000
-        volumes:
-            - type: bind
-              source: ./
-              target: /code
-            #- .:/code
-        ports:
-            - 8000:8000
+        image: rafac2/django-bakery
         depends_on:
             - db
     db:
         image: postgres:13
         volumes:
-            - postgres_data:/var/lib/postgresql/data
-        environment:
-            POSTGRES_DB: "django_bakery"
-            POSTGRES_USER: "django_bakery_user"
-            POSTGRES_PASSWORD: "bakery16130789"
-            POSTGRES_HOST_AUTH_METHOD: "trust"
+            - postgres_data:/var/lib/postgresql/data/
 volumes:
     postgres_data:

@@ -6,11 +6,11 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # La carpeta en la que se va a trabajar
-WORKDIR /code
+WORKDIR /usr/src/app
 
 # Dependencias
-COPY Pipfile Pipfile.lock /code/
+COPY Pipfile Pipfile.lock /usr/src/app/
 RUN pip install pipenv && pipenv install --system
 
 # Copia el proyecto
-COPY . /code/
+COPY . .
